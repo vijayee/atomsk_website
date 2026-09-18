@@ -1956,7 +1956,7 @@ function CompanySection() {
               }}
             >
               <p>
-                Atomsk was founded on a single observation: the multiplier
+                Atomsk was founded on a single observation: the mathematics
                 decides the economics of inference.
               </p>
               <p>The hardware is validated on FPGA today.</p>
