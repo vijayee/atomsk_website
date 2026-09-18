@@ -586,7 +586,7 @@ function VioletCardRender() {
         className="animate-core-pulse"
       />
 
-      {/* Main inference core */}
+      {/* Main AE core */}
       <rect
         x="268"
         y="163"
@@ -618,7 +618,7 @@ function VioletCardRender() {
         letterSpacing="2.5"
         fill="#6d6d96"
       >
-        INFERENCE CORE
+        AE CORE
       </text>
 
       {/* Silkscreen */}
@@ -631,6 +631,17 @@ function VioletCardRender() {
         fill="#4d4d74"
       >
         VIOLET V1
+      </text>
+      <text
+        x="335"
+        y="300"
+        textAnchor="middle"
+        fontFamily="PolenticalNeon, Outfit, sans-serif"
+        fontSize="7"
+        letterSpacing="2"
+        fill="#4d4d74"
+      >
+        AE MULTIPLIER
       </text>
       <text
         x="494"
@@ -922,7 +933,7 @@ function Hero() {
                 textTransform: "uppercase",
               }}
             >
-              Multiplier-free AI inference chips
+              Advanced Efficiency Multiplier technology
             </span>
           </div>
 
@@ -938,9 +949,9 @@ function Hero() {
           >
             <span className="text-white block">Inference chips</span>
             <span className="spectrum-text block">
-              without{" "}
+              with{" "}
               <span className="relative inline-block">
-                multipliers.
+                AE Multipliers.
                 <span className="spectrum-line absolute left-0 right-0 -bottom-1.5 h-[3px] opacity-80" />
               </span>
             </span>
@@ -954,9 +965,10 @@ function Hero() {
               lineHeight: 1.8,
             }}
           >
-            Atomsk hardware runs large language and diffusion models by decoding
-            compressed weights directly — no multiplication hardware in the
-            datapath. Datacenter-class models at desktop power and price.
+            Atomsk hardware runs large language and diffusion models on AE
+            Multipliers — our Advanced Efficiency Multiplier architecture.
+            Compressed HPMT weights decode directly in hardware.
+            Datacenter-class models at desktop power and price.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 animate-fade-up-delay-3">
@@ -1037,7 +1049,7 @@ function Hero() {
             <VioletCardRender />
           </div>
           <HeroCallout
-            label="Multiplier-free datapath"
+            label="AE Multiplier datapath"
             side="right"
             top="38%"
             delay="0.9s"
@@ -1172,9 +1184,8 @@ function ProblemSection() {
             Running a large model means streaming billions of weights past the
             arithmetic, once per token. Conventional accelerators pay for
             multipliers that sit idle waiting for data. Our format moves the
-            decode into the memory path, so bandwidth — not silicon multipliers
-            — is the only bottleneck left. That is exactly where an accelerator
-            should spend its money.
+            decode into the memory path, so bandwidth is the only bottleneck
+            left. That is exactly where an accelerator should spend its money.
           </p>
         </Reveal>
       </div>
@@ -1191,7 +1202,7 @@ const TECH_POINTS = [
   },
   {
     num: "02",
-    body: "The datapath decodes weights directly, without a single multiplication.",
+    body: "The datapath decodes weights directly through AE Multipliers.",
   },
   {
     num: "03",
@@ -1757,7 +1768,7 @@ const CONSOLE_LINES = [
   { label: "CPU", text: "bit-exact match", ok: true },
   { label: "SIM", text: "bit-exact match", ok: true },
   { label: "FPGA", text: "bit-exact match · 250 MHz", ok: true },
-  { label: "DECODE", text: "no multipliers in the datapath", ok: true },
+  { label: "CORE", text: "AE Multiplier datapath", ok: true },
 ]
 
 function ValidationPanel() {
@@ -1945,8 +1956,8 @@ function CompanySection() {
               }}
             >
               <p>
-                Atomsk was founded on a single observation: remove the
-                multiplier from inference and the economics change.
+                Atomsk was founded on a single observation: the multiplier
+                decides the economics of inference.
               </p>
               <p>The hardware is validated on FPGA today.</p>
               <p style={{ color: "#c5c5da" }}>
@@ -2192,7 +2203,7 @@ function UpdatesSection() {
         <Reveal delay={0.2}>
           <div className="mt-14 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
             {[
-              "Multiplier-free datapath",
+              "AE Multiplier datapath",
               "Bit-exact on FPGA at 250 MHz",
               "Specs labeled target or modeled",
               "Nothing ships yet",
@@ -2263,7 +2274,7 @@ function Footer() {
                 color: "#9b9bb4",
               }}
             >
-              Inference chips without multipliers.
+              Inference chips with AE Multipliers.
             </p>
           </div>
 
