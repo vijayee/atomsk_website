@@ -681,7 +681,12 @@ function VioletCardRender() {
 
 /* ————— Navigation ————— */
 
-const NAV_LINKS = ["Product", "About", "Roadmap", "Pricing"]
+const NAV_LINKS = [
+  { label: "Products", href: "#products" },
+  { label: "Technology", href: "#technology" },
+  { label: "Numbers", href: "#numbers" },
+  { label: "Company", href: "#company" },
+]
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -705,7 +710,7 @@ function Nav() {
       }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#product" className="flex items-center gap-3 group">
+        <a href="#hero" className="flex items-center gap-3 group">
           <AtomskLogoMark size={40} color="#ffffff" />
           <span className="flex flex-col leading-none">
             <span
@@ -727,8 +732,8 @@ function Nav() {
         <div className="hidden md:flex items-center gap-9">
           {NAV_LINKS.map((item) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+              key={item.label}
+              href={item.href}
               style={{
                 fontFamily: "PolenticalNeon, Outfit, sans-serif",
                 fontSize: "0.85rem",
@@ -736,11 +741,11 @@ function Nav() {
               }}
               className="nav-link uppercase text-[#9b9bb4] hover:text-white transition-colors duration-200"
             >
-              {item}
+              {item.label}
             </a>
           ))}
           <a
-            href="#pricing"
+            href="#updates"
             style={{
               fontFamily: "NameSmile, Barlow, sans-serif",
               fontWeight: 700,
@@ -750,7 +755,7 @@ function Nav() {
             }}
             className="uppercase px-5 py-2.5 text-white transition-all duration-300 hover:shadow-[0_0_24px_rgba(139,92,246,0.5)] hover:-translate-y-px"
           >
-            Get Violet
+            Get updates
           </a>
         </div>
 
@@ -783,7 +788,7 @@ function Nav() {
       <div
         className="md:hidden overflow-hidden transition-all duration-300"
         style={{
-          maxHeight: open ? 320 : 0,
+          maxHeight: open ? 340 : 0,
           background: "rgba(7,7,13,0.97)",
           borderBottom: open ? "1px solid #22223a" : "none",
         }}
@@ -791,8 +796,8 @@ function Nav() {
         <div className="px-6 py-5 flex flex-col gap-4">
           {NAV_LINKS.map((item) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+              key={item.label}
+              href={item.href}
               onClick={() => setOpen(false)}
               style={{
                 fontFamily: "PolenticalNeon, Outfit, sans-serif",
@@ -801,11 +806,11 @@ function Nav() {
               }}
               className="uppercase text-[#c5c5da]"
             >
-              {item}
+              {item.label}
             </a>
           ))}
           <a
-            href="#pricing"
+            href="#updates"
             onClick={() => setOpen(false)}
             style={{
               fontFamily: "NameSmile, Barlow, sans-serif",
@@ -816,7 +821,7 @@ function Nav() {
             }}
             className="uppercase text-center px-5 py-3 text-white mt-2"
           >
-            Get Violet
+            Get updates
           </a>
         </div>
       </div>
@@ -881,7 +886,7 @@ function HeroCallout({
 function Hero() {
   return (
     <section
-      id="product"
+      id="hero"
       className="relative min-h-screen flex items-center overflow-hidden pt-28 pb-16"
     >
       <HeroBackdrop />
@@ -917,7 +922,7 @@ function Hero() {
                 textTransform: "uppercase",
               }}
             >
-              Introducing Violet · Private AI Hardware
+              Multiplier-free AI inference chips
             </span>
           </div>
 
@@ -927,17 +932,15 @@ function Hero() {
               fontFamily: "NameSmile, Barlow, sans-serif",
               fontWeight: 900,
               fontSize: "clamp(2.6rem, 5.6vw, 4.9rem)",
-              lineHeight: 0.98,
+              lineHeight: 1.02,
               letterSpacing: "-0.015em",
-              textTransform: "uppercase",
             }}
           >
-            <span className="text-white block">Powerful AI.</span>
-            <span className="spectrum-text block">On Your Desk.</span>
-            <span className="text-white block">
-              On Your{" "}
+            <span className="text-white block">Inference chips</span>
+            <span className="spectrum-text block">
+              without{" "}
               <span className="relative inline-block">
-                Terms.
+                multipliers.
                 <span className="spectrum-line absolute left-0 right-0 -bottom-1.5 h-[3px] opacity-80" />
               </span>
             </span>
@@ -951,26 +954,25 @@ function Hero() {
               lineHeight: 1.8,
             }}
           >
-            Atomsk builds Violet — an affordable card that turns an ordinary
-            desktop computer into a powerful, private AI machine. No
-            subscriptions. No cloud. Just yours.
+            Atomsk hardware runs large language and diffusion models by decoding
+            compressed weights directly — no multiplication hardware in the
+            datapath. Datacenter-class models at desktop power and price.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 animate-fade-up-delay-3">
             <a
-              href="#pricing"
+              href="#updates"
               className="group relative px-8 py-4 text-white text-center transition-all duration-300 hover:scale-[1.03] violet-glow overflow-hidden"
               style={{
                 fontFamily: "NameSmile, Barlow, sans-serif",
                 fontWeight: 700,
                 fontSize: "0.92rem",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
+                letterSpacing: "0.06em",
                 background:
                   "linear-gradient(135deg, #6366f1, #8b5cf6 55%, #a855f7)",
               }}
             >
-              <span className="relative z-10">Get Violet →</span>
+              <span className="relative z-10">Get updates →</span>
               <span
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{
@@ -980,44 +982,45 @@ function Hero() {
               />
             </a>
             <a
-              href="#about"
+              href="#numbers"
               className="px-8 py-4 text-center text-[#a5b4fc] transition-all duration-300 hover:text-white hover:bg-white/5 frame-ticks"
               style={{
                 fontFamily: "NameSmile, Barlow, sans-serif",
                 fontWeight: 700,
                 fontSize: "0.92rem",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
+                letterSpacing: "0.06em",
                 border: "1px solid rgba(129,140,248,0.28)",
               }}
             >
-              Learn More
+              See the numbers
             </a>
           </div>
 
           {/* Meta row */}
           <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 animate-fade-up-delay-4">
-            {["Patent pending", "Ships 2025", "Working prototype verified"].map(
-              (m) => (
-                <div key={m} className="flex items-center gap-2.5">
-                  <span
-                    className="w-1 h-1 rotate-45 bg-[#8b5cf6]"
-                    style={{ boxShadow: "0 0 6px rgba(139,92,246,0.9)" }}
-                  />
-                  <span
-                    style={{
-                      fontFamily: "PolenticalNeon, Outfit, sans-serif",
-                      fontSize: "0.78rem",
-                      letterSpacing: "0.14em",
-                      color: "#9b9bb4",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    {m}
-                  </span>
-                </div>
-              ),
-            )}
+            {[
+              "Bit-exact decode",
+              "CPU · simulation · FPGA",
+              "250 MHz FPGA validation",
+            ].map((m) => (
+              <div key={m} className="flex items-center gap-2.5">
+                <span
+                  className="w-1 h-1 rotate-45 bg-[#8b5cf6]"
+                  style={{ boxShadow: "0 0 6px rgba(139,92,246,0.9)" }}
+                />
+                <span
+                  style={{
+                    fontFamily: "PolenticalNeon, Outfit, sans-serif",
+                    fontSize: "0.78rem",
+                    letterSpacing: "0.14em",
+                    color: "#9b9bb4",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {m}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -1034,19 +1037,14 @@ function Hero() {
             <VioletCardRender />
           </div>
           <HeroCallout
-            label="Local inference core"
+            label="Multiplier-free datapath"
             side="right"
             top="38%"
             delay="0.9s"
           />
+          <HeroCallout label="PCIe card" side="right" top="72%" delay="1.05s" />
           <HeroCallout
-            label="Standard desktop slot"
-            side="right"
-            top="72%"
-            delay="1.05s"
-          />
-          <HeroCallout
-            label="Silent · low-power"
+            label="Under 75 W target"
             side="left"
             top="30%"
             delay="1.2s"
@@ -1073,20 +1071,17 @@ function Hero() {
   )
 }
 
-/* ————— Marquee ————— */
+/* ————— Stat strip ————— */
 
-const MARQUEE_ITEMS = [
-  "Private by design",
-  "Offline-first",
-  "No subscriptions",
-  "Your data stays home",
-  "One-time price",
-  "Open models",
-  "Built in Maryland",
+const STAT_ITEMS = [
+  "$499 target retail",
+  "128 GB on-card memory",
+  "Under 75 W",
+  "Up to 70B-parameter models",
 ]
 
-function MarqueeStrip() {
-  const row = [...MARQUEE_ITEMS, ...MARQUEE_ITEMS]
+function StatStrip() {
+  const row = [...STAT_ITEMS, ...STAT_ITEMS]
   return (
     <div
       className="relative py-5 overflow-hidden marquee-paused"
@@ -1098,7 +1093,11 @@ function MarqueeStrip() {
     >
       <div className="flex w-max animate-marquee items-center">
         {[0, 1].map((half) => (
-          <div key={half} className="flex items-center shrink-0">
+          <div
+            key={half}
+            className="flex items-center shrink-0"
+            aria-hidden={half === 1}
+          >
             {row.map((item, i) => (
               <span key={`${half}-${i}`} className="flex items-center shrink-0">
                 <span
@@ -1140,135 +1139,14 @@ function MarqueeStrip() {
   )
 }
 
-/* ————— Product ————— */
+/* ————— The problem ————— */
 
-const FEATURES = [
-  {
-    num: "01",
-    title: "No Subscriptions",
-    body: "Buy Violet once. Run AI forever. No monthly fees, no per-query charges. Your hardware, your bill — done.",
-    icon: (
-      <svg
-        width="30"
-        height="30"
-        viewBox="0 0 28 28"
-        fill="none"
-        aria-hidden="true"
-      >
-        <circle
-          cx="14"
-          cy="14"
-          r="11"
-          stroke="url(#featGrad)"
-          strokeWidth="1.5"
-        />
-        <path
-          d="M9.5 14.5l3 3 6-6"
-          stroke="url(#featGrad)"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
-  },
-  {
-    num: "02",
-    title: "No Internet Required",
-    body: "Works offline, completely. Power cuts, outages, travel — Violet runs the same no matter what the network looks like.",
-    icon: (
-      <svg
-        width="30"
-        height="30"
-        viewBox="0 0 28 28"
-        fill="none"
-        aria-hidden="true"
-      >
-        <path
-          d="M4 11a15 15 0 0120 0"
-          stroke="url(#featGrad)"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-        <path
-          d="M8 15a10 10 0 0112 0"
-          stroke="url(#featGrad)"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-        <circle cx="14" cy="20" r="2" fill="url(#featGrad)" />
-        <path
-          d="M24 4L4 24"
-          stroke="#d946ef"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
-  },
-  {
-    num: "03",
-    title: "Your Data, Your Machine",
-    body: "Prompts, responses, documents — none of it leaves your computer. Not because we promise it. Because there's nowhere for it to go.",
-    icon: (
-      <svg
-        width="30"
-        height="30"
-        viewBox="0 0 28 28"
-        fill="none"
-        aria-hidden="true"
-      >
-        <path
-          d="M14 3L5 7v7c0 5 4 9.3 9 10 5-.7 9-5 9-10V7l-9-4z"
-          stroke="url(#featGrad)"
-          strokeWidth="1.5"
-          strokeLinejoin="round"
-        />
-        <rect
-          x="10.5"
-          y="12.5"
-          width="7"
-          height="6"
-          rx="1"
-          stroke="url(#featGrad)"
-          strokeWidth="1.4"
-        />
-        <path
-          d="M12 12.5V11a2 2 0 014 0v1.5"
-          stroke="url(#featGrad)"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
-  },
-]
-
-function FeatGradientDef() {
-  return (
-    <svg
-      width="0"
-      height="0"
-      aria-hidden="true"
-      style={{ position: "absolute" }}
-    >
-      <defs>
-        <linearGradient id="featGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#818cf8" />
-          <stop offset="100%" stopColor="#d946ef" />
-        </linearGradient>
-      </defs>
-    </svg>
-  )
-}
-
-function ProductSection() {
+function ProblemSection() {
   return (
     <section className="relative py-28 px-6" style={{ background: "#07070d" }}>
-      <FeatGradientDef />
       <div className="max-w-7xl mx-auto">
         <Reveal>
-          <SectionEyebrow index="01" label="What is Violet" />
+          <SectionEyebrow index="01" label="The problem" />
           <h2
             className="text-center text-white"
             style={{
@@ -1276,13 +1154,12 @@ function ProductSection() {
               fontWeight: 800,
               fontSize: "clamp(2rem, 4.5vw, 3.4rem)",
               letterSpacing: "-0.01em",
-              textTransform: "uppercase",
-              lineHeight: 1.02,
+              lineHeight: 1.08,
             }}
           >
-            Today's most capable AI.
+            Inference is a memory problem,
             <br />
-            <span className="gradient-text">Right where you sit.</span>
+            <span className="gradient-text">not a math problem.</span>
           </h2>
           <p
             className="mt-7 max-w-2xl mx-auto text-center text-[#9b9bb4]"
@@ -1292,210 +1169,452 @@ function ProductSection() {
               lineHeight: 1.85,
             }}
           >
-            Violet is an expansion card for your desktop. Install it, and the
-            most capable open AI models run locally — at a fraction of the cost
-            and power of cloud AI. For the families, professionals, and small
-            businesses the datacenter left behind.
+            Running a large model means streaming billions of weights past the
+            arithmetic, once per token. Conventional accelerators pay for
+            multipliers that sit idle waiting for data. Our format moves the
+            decode into the memory path, so bandwidth — not silicon multipliers
+            — is the only bottleneck left. That is exactly where an accelerator
+            should spend its money.
           </p>
         </Reveal>
+      </div>
+    </section>
+  )
+}
 
-        {/* Feature cards */}
-        <div className="mt-16 grid md:grid-cols-3 gap-5">
-          {FEATURES.map((f, i) => (
-            <Reveal key={f.title} delay={i * 0.12}>
+/* ————— Technology ————— */
+
+const TECH_POINTS = [
+  {
+    num: "01",
+    body: "Weights ship in HPMT, our hardware-native compressed format.",
+  },
+  {
+    num: "02",
+    body: "The datapath decodes weights directly, without a single multiplication.",
+  },
+  {
+    num: "03",
+    body: "At our default setting, Mistral-7B perplexity changes by just +0.14 — better than leading 4-bit quantization methods at comparable size.",
+  },
+  {
+    num: "04",
+    body: "Verified bit-exact: one weight file, identical decode on CPU, simulation, and FPGA.",
+  },
+]
+
+function TechnologySection() {
+  return (
+    <section
+      id="technology"
+      className="relative py-28 px-6"
+      style={{
+        background: "#0a0a13",
+        borderTop: "1px solid #22223a",
+        borderBottom: "1px solid #22223a",
+      }}
+    >
+      <div className="max-w-7xl mx-auto">
+        <Reveal>
+          <SectionEyebrow index="02" label="Technology" />
+          <h2
+            className="text-center text-white"
+            style={{
+              fontFamily: "NameSmile, Barlow, sans-serif",
+              fontWeight: 800,
+              fontSize: "clamp(2rem, 4.5vw, 3.4rem)",
+              letterSpacing: "-0.01em",
+              lineHeight: 1.08,
+            }}
+          >
+            Compressed at rest.
+            <br />
+            <span className="gradient-text">Exact in flight.</span>
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 grid md:grid-cols-2 gap-5">
+          {TECH_POINTS.map((p, i) => (
+            <Reveal key={p.num} delay={i * 0.1}>
               <div
                 className="card-hover frame-ticks relative p-8 h-full group"
                 style={{ background: "#0d0d18", border: "1px solid #22223a" }}
               >
                 <div className="absolute inset-x-0 top-0 h-[2px] spectrum-line opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="flex items-start justify-between mb-7">
-                  {f.icon}
-                  <span
-                    style={{
-                      fontFamily: "NameSmile, Barlow, sans-serif",
-                      fontWeight: 800,
-                      fontSize: "0.85rem",
-                      letterSpacing: "0.1em",
-                    }}
-                    className="text-outline"
-                  >
-                    {f.num}
-                  </span>
-                </div>
-                <h3
+                <span
                   style={{
                     fontFamily: "NameSmile, Barlow, sans-serif",
-                    fontWeight: 700,
-                    fontSize: "1.08rem",
-                    letterSpacing: "0.04em",
-                    textTransform: "uppercase",
+                    fontWeight: 800,
+                    fontSize: "0.85rem",
+                    letterSpacing: "0.1em",
                   }}
-                  className="text-white mb-3.5"
+                  className="text-outline"
                 >
-                  {f.title}
-                </h3>
+                  {p.num}
+                </span>
                 <p
+                  className="mt-5"
                   style={{
                     fontFamily: "PolenticalNeon, Outfit, sans-serif",
-                    fontSize: "0.92rem",
+                    fontSize: "1rem",
                     lineHeight: 1.8,
-                    color: "#9b9bb4",
+                    color: "#c5c5da",
                   }}
                 >
-                  {f.body}
+                  {p.body}
                 </p>
               </div>
             </Reveal>
           ))}
         </div>
+      </div>
+    </section>
+  )
+}
 
-        {/* Cloud vs Violet */}
-        <Reveal delay={0.15}>
-          <div className="mt-20 grid lg:grid-cols-[1fr_2fr] gap-10 items-start">
-            <div>
-              <h3
+/* ————— Products ————— */
+
+const VIOLET_SPECS = [
+  "$499 retail",
+  "128 GB quad DDR5, user-installable",
+  "Under 75 W",
+  "7B-class conversational speed",
+  "70B-class models entirely on-card",
+]
+
+const ULTRAVIOLET_SPECS = [
+  "2,600+ tokens/s per card at batch 16",
+  "45 mJ per token",
+  ">10× lower cost per token vs. H100-class systems",
+  "SD3-class images in ~2.2 s",
+]
+
+function SpecList({
+  label,
+  items,
+  accent,
+}: {
+  label: string
+  items: string[]
+  accent: string
+}) {
+  return (
+    <div className="mt-7 pt-6" style={{ borderTop: "1px solid #1f1f38" }}>
+      <p
+        style={{
+          fontFamily: "NameSmile, Barlow, sans-serif",
+          fontWeight: 700,
+          fontSize: "0.72rem",
+          letterSpacing: "0.16em",
+          textTransform: "uppercase",
+          color: accent,
+          marginBottom: "1rem",
+        }}
+      >
+        {label}
+      </p>
+      <ul className="space-y-3">
+        {items.map((item) => (
+          <li key={item} className="flex items-center gap-3.5">
+            <span
+              className="inline-block w-1.5 h-1.5 rotate-45 shrink-0"
+              style={{
+                background: "linear-gradient(135deg, #6366f1, #d946ef)",
+              }}
+            />
+            <span
+              style={{
+                fontFamily: "PolenticalNeon, Outfit, sans-serif",
+                fontSize: "0.92rem",
+                color: "#c5c5da",
+              }}
+            >
+              {item}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+function ProductsSection() {
+  return (
+    <section
+      id="products"
+      className="relative py-28 px-6 overflow-hidden"
+      style={{ background: "#07070d" }}
+    >
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[720px] h-[380px] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse, rgba(99,102,241,0.1) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="relative max-w-7xl mx-auto">
+        <Reveal>
+          <SectionEyebrow index="03" label="Products" />
+          <h2
+            className="text-center text-white mb-6"
+            style={{
+              fontFamily: "NameSmile, Barlow, sans-serif",
+              fontWeight: 800,
+              fontSize: "clamp(2rem, 4.5vw, 3.4rem)",
+              letterSpacing: "-0.01em",
+              lineHeight: 1.08,
+            }}
+          >
+            <span className="gradient-text">Products.</span>
+          </h2>
+          <p
+            className="text-[#9b9bb4] max-w-xl mx-auto text-center"
+            style={{
+              fontFamily: "PolenticalNeon, Outfit, sans-serif",
+              fontSize: "1.02rem",
+              lineHeight: 1.8,
+            }}
+          >
+            Violet and Ultraviolet are in development. All chip specifications
+            are target or modeled figures.
+          </p>
+        </Reveal>
+
+        {/* Timeline spine */}
+        <div className="hidden md:block relative mt-10 mb-[-1px]">
+          <div className="h-px w-full spectrum-line opacity-40" />
+        </div>
+
+        <div className="relative grid md:grid-cols-2 gap-8 items-stretch mt-8 md:mt-10">
+          {/* Violet */}
+          <Reveal>
+            <div id="violet" className="h-full relative">
+              <div
+                className="hidden md:block absolute -top-[21px] left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full"
+                style={{
+                  background: "#a78bfa",
+                  boxShadow:
+                    "0 0 0 5px rgba(167,139,250,0.18), 0 0 16px rgba(167,139,250,0.8)",
+                }}
+              />
+              <div
+                className="card-hover frame-ticks p-9 h-full relative"
+                style={{
+                  background: "#0d0d18",
+                  border: "1px solid rgba(124,58,237,0.45)",
+                }}
+              >
+                <div className="absolute inset-x-0 top-0 h-[2px] spectrum-line" />
+                <div
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-7"
+                  style={{
+                    background: "rgba(124,58,237,0.12)",
+                    border: "1px solid rgba(124,58,237,0.35)",
+                    fontFamily: "PolenticalNeon, Outfit, sans-serif",
+                    fontSize: "0.68rem",
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                    color: "#c4b5fd",
+                  }}
+                >
+                  <span
+                    className="w-1.5 h-1.5 rounded-full bg-[#a78bfa]"
+                    style={{ animation: "pulse-glow 2s ease infinite" }}
+                  />
+                  In development · Consumer
+                </div>
+                <h3
+                  style={{
+                    fontFamily: "NameSmile, Barlow, sans-serif",
+                    fontWeight: 900,
+                    fontSize: "2.6rem",
+                    letterSpacing: "-0.01em",
+                    lineHeight: 1,
+                  }}
+                  className="text-white mb-2"
+                >
+                  Violet.
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "NameSmile, Barlow, sans-serif",
+                    fontWeight: 700,
+                    fontSize: "1.05rem",
+                    color: "#a78bfa",
+                    letterSpacing: "0.02em",
+                    marginBottom: "1.4rem",
+                    lineHeight: 1.4,
+                  }}
+                >
+                  A 70B-class lab on a PCIe card.
+                </p>
+                <p
+                  style={{
+                    fontFamily: "PolenticalNeon, Outfit, sans-serif",
+                    fontSize: "0.93rem",
+                    lineHeight: 1.8,
+                    color: "#9b9bb4",
+                  }}
+                >
+                  Local inference keeps your data on your machine and your costs
+                  flat. Violet makes local practical for models that used to
+                  need a rack.
+                </p>
+                <SpecList
+                  label="Target specs"
+                  items={VIOLET_SPECS}
+                  accent="#c4b5fd"
+                />
+                <p
+                  className="mt-7"
+                  style={{
+                    fontFamily: "PolenticalNeon, Outfit, sans-serif",
+                    fontSize: "0.85rem",
+                    lineHeight: 1.7,
+                    color: "#9b9bb4",
+                  }}
+                >
+                  FPGA developer kits available first, for early partners.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Ultraviolet */}
+          <Reveal delay={0.15}>
+            <div id="ultraviolet" className="h-full relative">
+              <div
+                className="hidden md:block absolute -top-[21px] left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full"
+                style={{ background: "#07070d", border: "2px solid #6366f1" }}
+              />
+              <div
+                className="card-hover p-9 h-full relative"
+                style={{ background: "#0b0b16", border: "1px solid #22223a" }}
+              >
+                <div
+                  className="absolute top-0 right-0 w-44 h-44 pointer-events-none"
+                  style={{
+                    background:
+                      "radial-gradient(circle at top right, rgba(99,102,241,0.12), transparent 70%)",
+                  }}
+                />
+                <div
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-7"
+                  style={{
+                    background: "rgba(99,102,241,0.09)",
+                    border: "1px solid rgba(99,102,241,0.3)",
+                    fontFamily: "PolenticalNeon, Outfit, sans-serif",
+                    fontSize: "0.68rem",
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                    color: "#a5b4fc",
+                  }}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#818cf8] opacity-60" />
+                  In development · Datacenter
+                </div>
+                <h3
+                  style={{
+                    fontFamily: "NameSmile, Barlow, sans-serif",
+                    fontWeight: 900,
+                    fontSize: "2.6rem",
+                    letterSpacing: "-0.01em",
+                    lineHeight: 1,
+                  }}
+                  className="gradient-text mb-2"
+                >
+                  Ultraviolet.
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "NameSmile, Barlow, sans-serif",
+                    fontWeight: 700,
+                    fontSize: "1.05rem",
+                    color: "#818cf8",
+                    letterSpacing: "0.02em",
+                    marginBottom: "1.4rem",
+                    lineHeight: 1.4,
+                  }}
+                >
+                  Datacenter economics, re-cut.
+                </p>
+                <p
+                  style={{
+                    fontFamily: "PolenticalNeon, Outfit, sans-serif",
+                    fontSize: "0.93rem",
+                    lineHeight: 1.8,
+                    color: "#9b9bb4",
+                  }}
+                >
+                  The same datapath, scaled to HBM3e.
+                </p>
+                <SpecList
+                  label="Modeled specs"
+                  items={ULTRAVIOLET_SPECS}
+                  accent="#a5b4fc"
+                />
+                <p
+                  className="mt-7"
+                  style={{
+                    fontFamily: "PolenticalNeon, Outfit, sans-serif",
+                    fontSize: "0.78rem",
+                    lineHeight: 1.7,
+                    color: "#6d6d90",
+                  }}
+                >
+                  Based on internal TCO modeling. Methodology available on
+                  request.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* First hardware callout */}
+        <Reveal delay={0.2}>
+          <div
+            className="mt-12 px-8 py-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 relative overflow-hidden"
+            style={{ background: "#0d0d18", border: "1px solid #22223a" }}
+          >
+            <div className="absolute inset-y-0 left-0 w-[3px] spectrum-line" />
+            <div className="pl-3">
+              <p
                 style={{
                   fontFamily: "NameSmile, Barlow, sans-serif",
-                  fontWeight: 800,
-                  fontSize: "clamp(1.4rem, 2.4vw, 1.9rem)",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.01em",
-                  lineHeight: 1.1,
+                  fontWeight: 700,
+                  fontSize: "1.05rem",
+                  letterSpacing: "0.02em",
+                  color: "#f2f2fa",
+                  marginBottom: "0.3rem",
                 }}
-                className="text-white"
               >
-                Cloud AI
-                <br />
-                <span className="text-outline">vs.</span>
-                <br />
-                <span className="gradient-text">Violet</span>
-              </h3>
+                First hardware: FPGA developer kits.
+              </p>
               <p
-                className="mt-5"
                 style={{
                   fontFamily: "PolenticalNeon, Outfit, sans-serif",
-                  fontSize: "0.92rem",
-                  lineHeight: 1.8,
+                  fontSize: "0.88rem",
                   color: "#9b9bb4",
                 }}
               >
-                Same class of intelligence. A completely different ownership
-                model.
+                For early partners.
               </p>
             </div>
-
-            <div
-              className="frame-ticks"
-              style={{ border: "1px solid #22223a", background: "#0a0a13" }}
+            <a
+              href="#updates"
+              className="shrink-0 px-7 py-3.5 transition-all duration-300 hover:shadow-[0_0_28px_rgba(99,102,241,0.5)] hover:-translate-y-px"
+              style={{
+                fontFamily: "NameSmile, Barlow, sans-serif",
+                fontWeight: 700,
+                fontSize: "0.82rem",
+                letterSpacing: "0.06em",
+                background: "linear-gradient(135deg, #4f46e5, #6366f1)",
+                color: "#fff",
+              }}
             >
-              {/* Header */}
-              <div
-                className="grid grid-cols-[1.1fr_1fr_1fr]"
-                style={{ borderBottom: "1px solid #22223a" }}
-              >
-                <div className="px-6 py-4" />
-                <div
-                  className="px-6 py-4 text-center"
-                  style={{ borderLeft: "1px solid #1a1a2e" }}
-                >
-                  <span
-                    style={{
-                      fontFamily: "PolenticalNeon, Outfit, sans-serif",
-                      fontSize: "0.72rem",
-                      letterSpacing: "0.2em",
-                      textTransform: "uppercase",
-                      color: "#6d6d90",
-                    }}
-                  >
-                    Cloud AI
-                  </span>
-                </div>
-                <div
-                  className="px-6 py-4 text-center relative"
-                  style={{
-                    borderLeft: "1px solid #1a1a2e",
-                    background: "rgba(139,92,246,0.06)",
-                  }}
-                >
-                  <span className="absolute inset-x-0 top-0 h-[2px] spectrum-line" />
-                  <span
-                    style={{
-                      fontFamily: "NameSmile, Barlow, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "0.8rem",
-                      letterSpacing: "0.18em",
-                      textTransform: "uppercase",
-                    }}
-                    className="gradient-text"
-                  >
-                    Violet
-                  </span>
-                </div>
-              </div>
-              {[
-                ["Monthly bill", "$20–$50, forever", "$0 after purchase"],
-                [
-                  "Your data",
-                  "On someone else's computers",
-                  "Never leaves your machine",
-                ],
-                ["Works offline", "No", "Yes. Always"],
-                ["You own it", "You rent access", "The hardware is yours"],
-              ].map(([label, cloud, violet], i, arr) => (
-                <div
-                  key={label}
-                  className="grid grid-cols-[1.1fr_1fr_1fr]"
-                  style={{
-                    borderBottom:
-                      i < arr.length - 1 ? "1px solid #1a1a2e" : "none",
-                  }}
-                >
-                  <div className="px-6 py-5">
-                    <span
-                      style={{
-                        fontFamily: "PolenticalNeon, Outfit, sans-serif",
-                        fontSize: "0.88rem",
-                        color: "#c5c5da",
-                      }}
-                    >
-                      {label}
-                    </span>
-                  </div>
-                  <div
-                    className="px-6 py-5 text-center"
-                    style={{ borderLeft: "1px solid #1a1a2e" }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: "PolenticalNeon, Outfit, sans-serif",
-                        fontSize: "0.85rem",
-                        color: "#6d6d90",
-                      }}
-                    >
-                      {cloud}
-                    </span>
-                  </div>
-                  <div
-                    className="px-6 py-5 text-center"
-                    style={{
-                      borderLeft: "1px solid #1a1a2e",
-                      background: "rgba(139,92,246,0.06)",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: "PolenticalNeon, Outfit, sans-serif",
-                        fontSize: "0.85rem",
-                        color: "#e2e2f5",
-                        fontWeight: 500,
-                      }}
-                    >
-                      {violet}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
+              Get updates →
+            </a>
           </div>
         </Reveal>
       </div>
@@ -1503,11 +1622,12 @@ function ProductSection() {
   )
 }
 
-/* ————— Stats band ————— */
+/* ————— Numbers ————— */
 
-function StatsBand() {
+function NumbersSection() {
   return (
     <section
+      id="numbers"
       className="relative overflow-hidden py-28 px-6"
       style={{
         background: "#0a0a13",
@@ -1528,6 +1648,22 @@ function StatsBand() {
 
       <div className="relative max-w-7xl mx-auto">
         <Reveal>
+          <SectionEyebrow index="04" label="Numbers" />
+          <h2
+            className="text-center text-white mb-14"
+            style={{
+              fontFamily: "NameSmile, Barlow, sans-serif",
+              fontWeight: 800,
+              fontSize: "clamp(2rem, 4.5vw, 3.4rem)",
+              letterSpacing: "-0.01em",
+              lineHeight: 1.08,
+            }}
+          >
+            Measured, <span className="gradient-text">not promised.</span>
+          </h2>
+        </Reveal>
+
+        <Reveal>
           <div className="text-center">
             <p
               className="spectrum-text spectrum-animated"
@@ -1537,10 +1673,9 @@ function StatsBand() {
                 fontSize: "clamp(4rem, 12vw, 10rem)",
                 lineHeight: 0.95,
                 letterSpacing: "-0.02em",
-                textTransform: "uppercase",
               }}
             >
-              <CountUp target={100} suffix="×" />
+              <CountUp target={250} suffix=" MHz" />
             </p>
             <p
               style={{
@@ -1552,7 +1687,7 @@ function StatsBand() {
               }}
               className="mt-4"
             >
-              Less energy than cloud AI
+              Bit-exact FPGA validation
             </p>
           </div>
         </Reveal>
@@ -1562,9 +1697,21 @@ function StatsBand() {
           style={{ background: "#1a1a2e", border: "1px solid #1a1a2e" }}
         >
           {[
-            { value: "$0", label: "Monthly fees. Forever." },
-            { value: "0", label: "Bytes of your data leave the machine" },
-            { value: "1", label: "Purchase. Yours for good." },
+            {
+              value: "+0.14",
+              label:
+                "Perplexity on Mistral-7B at default compression (internal measurement)",
+            },
+            {
+              value: "1",
+              label:
+                "Weight file — identical decode on CPU, simulation, and FPGA",
+            },
+            {
+              value: "Under NDA",
+              label:
+                "Datacenter figures are modeled, labeled, and reproducible",
+            },
           ].map((s, i) => (
             <Reveal key={s.label} delay={0.1 + i * 0.1}>
               <div
@@ -1575,7 +1722,7 @@ function StatsBand() {
                   style={{
                     fontFamily: "NameSmile, Barlow, sans-serif",
                     fontWeight: 800,
-                    fontSize: "clamp(2rem, 4vw, 3rem)",
+                    fontSize: "clamp(1.7rem, 3.4vw, 2.6rem)",
                     lineHeight: 1,
                   }}
                   className="gradient-text"
@@ -1587,9 +1734,9 @@ function StatsBand() {
                   style={{
                     fontFamily: "PolenticalNeon, Outfit, sans-serif",
                     fontSize: "0.8rem",
-                    letterSpacing: "0.16em",
-                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
                     color: "#9b9bb4",
+                    lineHeight: 1.7,
                   }}
                 >
                   {s.label}
@@ -1603,17 +1750,17 @@ function StatsBand() {
   )
 }
 
-/* ————— About ————— */
+/* ————— Company ————— */
 
-const TERMINAL_LINES = [
-  { prompt: true, text: "violet status" },
-  { label: "MODEL", text: "loaded · open-weights, local", ok: true },
-  { label: "NETWORK", text: "not required · offline OK", ok: true },
-  { label: "DATA", text: "0 bytes left this machine", ok: true },
-  { label: "POWER", text: "sipping watts, not gulping", ok: true },
+const CONSOLE_LINES = [
+  { prompt: true, text: "hpmt verify model.weights" },
+  { label: "CPU", text: "bit-exact match", ok: true },
+  { label: "SIM", text: "bit-exact match", ok: true },
+  { label: "FPGA", text: "bit-exact match · 250 MHz", ok: true },
+  { label: "DECODE", text: "no multipliers in the datapath", ok: true },
 ]
 
-function TerminalPanel() {
+function ValidationPanel() {
   return (
     <div
       className="frame-ticks"
@@ -1648,12 +1795,12 @@ function TerminalPanel() {
             color: "#6d6d90",
           }}
         >
-          violet — local console
+          hpmt — validation console
         </span>
       </div>
       {/* Body */}
       <div className="px-6 py-6 space-y-3.5">
-        {TERMINAL_LINES.map((line, i) =>
+        {CONSOLE_LINES.map((line, i) =>
           line.prompt ? (
             <div key={i} className="flex items-center gap-2.5">
               <span
@@ -1727,10 +1874,10 @@ function TerminalPanel() {
   )
 }
 
-function AboutSection() {
+function CompanySection() {
   return (
     <section
-      id="about"
+      id="company"
       className="relative py-28 px-6 overflow-hidden"
       style={{ background: "#07070d" }}
     >
@@ -1756,7 +1903,7 @@ function AboutSection() {
                   color: "#818cf8",
                 }}
               >
-                02
+                05
               </span>
               <span
                 className="w-1 h-1 rounded-full bg-[#818cf8]"
@@ -1771,7 +1918,7 @@ function AboutSection() {
                   color: "#9b9bb4",
                 }}
               >
-                About Atomsk
+                Company
               </span>
             </div>
             <h2
@@ -1781,13 +1928,12 @@ function AboutSection() {
                 fontWeight: 800,
                 fontSize: "clamp(1.9rem, 4vw, 3.1rem)",
                 letterSpacing: "-0.01em",
-                textTransform: "uppercase",
-                lineHeight: 1.02,
+                lineHeight: 1.08,
               }}
             >
-              Simple mission.
+              Small team.
               <br />
-              <span className="gradient-text">The hard part is done.</span>
+              <span className="gradient-text">One idea.</span>
             </h2>
             <div
               className="space-y-5"
@@ -1799,36 +1945,22 @@ function AboutSection() {
               }}
             >
               <p>
-                Atomsk is a technology company with a simple mission: make
-                powerful AI private and affordable.
+                Atomsk was founded on a single observation: remove the
+                multiplier from inference and the economics change.
               </p>
-              <p>
-                Today, almost all AI lives in far-away datacenters. You pay
-                monthly fees, your questions travel across the internet, and
-                your data sits on someone else's computers. For families, that's
-                an uncomfortable trade-off. For doctors, lawyers, journalists,
-                and accountants, it can be against the rules entirely.
-              </p>
-              <p>
-                We're building Violet: an add-in card for ordinary desktop
-                computers that runs today's powerful AI models locally —
-                offline, whisper-quiet on power, at a one-time consumer price.
-                Buy it once. Own it. Your information stays yours.
-              </p>
+              <p>The hardware is validated on FPGA today.</p>
               <p style={{ color: "#c5c5da" }}>
-                The hard part is done: our working prototype reproduces a
-                leading, publicly available AI model exactly, verified end to
-                end on standard equipment anyone can buy. The technology behind
-                it is patent-pending.
+                First silicon is in development.
               </p>
+              <p>Founded by [Founder name] · [Location]</p>
             </div>
           </div>
         </Reveal>
 
         <Reveal delay={0.15}>
           <div className="relative">
-            <TerminalPanel />
-            {/* Patent badge */}
+            <ValidationPanel />
+            {/* Validation badge */}
             <div
               className="absolute -bottom-5 left-8 px-5 py-3 flex items-center gap-3"
               style={{
@@ -1843,7 +1975,7 @@ function AboutSection() {
               }}
             >
               <AtomskLogoMark size={20} color="#ffffff" />
-              Patent Pending
+              Validated on FPGA
             </div>
             {/* Decorative rear panel */}
             <div
@@ -1861,335 +1993,23 @@ function AboutSection() {
   )
 }
 
-/* ————— Roadmap ————— */
+/* ————— Roadmap + updates ————— */
 
-function RoadmapSection() {
+const ROADMAP_ITEMS = [
+  "FPGA developer kits for early partners.",
+  "Violet silicon in development.",
+  "Datacenter TCO white paper on request.",
+]
+
+function UpdatesSection() {
+  const [email, setEmail] = useState("")
+  const [submitted, setSubmitted] = useState(false)
+
   return (
     <section
-      id="roadmap"
+      id="updates"
       className="relative py-28 px-6 overflow-hidden"
-      style={{ background: "#0a0a13" }}
-    >
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[720px] h-[380px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse, rgba(99,102,241,0.1) 0%, transparent 70%)",
-        }}
-      />
-
-      <div className="relative max-w-7xl mx-auto">
-        <Reveal>
-          <SectionEyebrow index="03" label="What's next" />
-          <h2
-            className="text-center text-white mb-6"
-            style={{
-              fontFamily: "NameSmile, Barlow, sans-serif",
-              fontWeight: 800,
-              fontSize: "clamp(2rem, 4.5vw, 3.4rem)",
-              letterSpacing: "-0.01em",
-              textTransform: "uppercase",
-              lineHeight: 1.02,
-            }}
-          >
-            The Roadmap
-          </h2>
-          <p
-            className="text-[#9b9bb4] max-w-xl mx-auto text-center"
-            style={{
-              fontFamily: "PolenticalNeon, Outfit, sans-serif",
-              fontSize: "1.02rem",
-              lineHeight: 1.8,
-            }}
-          >
-            Violet is our first product. Ultraviolet is what's next.
-          </p>
-        </Reveal>
-
-        {/* Timeline spine */}
-        <div className="hidden md:block relative mt-10 mb-[-1px]">
-          <div className="h-px w-full spectrum-line opacity-40" />
-        </div>
-
-        <div className="relative grid md:grid-cols-2 gap-8 items-stretch mt-8 md:mt-10">
-          {/* Violet — current */}
-          <Reveal>
-            <div className="h-full relative">
-              <div
-                className="hidden md:block absolute -top-[21px] left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full"
-                style={{
-                  background: "#a78bfa",
-                  boxShadow:
-                    "0 0 0 5px rgba(167,139,250,0.18), 0 0 16px rgba(167,139,250,0.8)",
-                }}
-              />
-              <div
-                className="card-hover frame-ticks p-9 h-full relative"
-                style={{
-                  background: "#0d0d18",
-                  border: "1px solid rgba(124,58,237,0.45)",
-                }}
-              >
-                <div className="absolute inset-x-0 top-0 h-[2px] spectrum-line" />
-                <div
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-7"
-                  style={{
-                    background: "rgba(124,58,237,0.12)",
-                    border: "1px solid rgba(124,58,237,0.35)",
-                    fontFamily: "PolenticalNeon, Outfit, sans-serif",
-                    fontSize: "0.68rem",
-                    letterSpacing: "0.2em",
-                    textTransform: "uppercase",
-                    color: "#c4b5fd",
-                  }}
-                >
-                  <span
-                    className="w-1.5 h-1.5 rounded-full bg-[#a78bfa]"
-                    style={{ animation: "pulse-glow 2s ease infinite" }}
-                  />
-                  Now — Consumer
-                </div>
-                <h3
-                  style={{
-                    fontFamily: "NameSmile, Barlow, sans-serif",
-                    fontWeight: 900,
-                    fontSize: "2.6rem",
-                    textTransform: "uppercase",
-                    letterSpacing: "-0.01em",
-                    lineHeight: 1,
-                  }}
-                  className="text-white mb-2"
-                >
-                  Violet
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "PolenticalNeon, Outfit, sans-serif",
-                    fontSize: "0.8rem",
-                    color: "#a78bfa",
-                    letterSpacing: "0.16em",
-                    textTransform: "uppercase",
-                    marginBottom: "1.4rem",
-                  }}
-                >
-                  Private AI for your desk
-                </p>
-                <p
-                  style={{
-                    fontFamily: "PolenticalNeon, Outfit, sans-serif",
-                    fontSize: "0.93rem",
-                    lineHeight: 1.8,
-                    color: "#9b9bb4",
-                  }}
-                >
-                  An affordable add-in card for desktop computers. Run today's
-                  most capable open AI models locally — no subscriptions, no
-                  internet, no data leaving your machine. One-time price. Yours
-                  forever.
-                </p>
-                <div
-                  className="mt-7 pt-6 flex items-center gap-3"
-                  style={{ borderTop: "1px solid #1f1f38" }}
-                >
-                  <span className="w-6 h-px spectrum-line" />
-                  <span
-                    style={{
-                      fontFamily: "NameSmile, Barlow, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "0.78rem",
-                      letterSpacing: "0.12em",
-                      textTransform: "uppercase",
-                      color: "#c4b5fd",
-                    }}
-                  >
-                    In Development → Ships 2025
-                  </span>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Ultraviolet — next */}
-          <Reveal delay={0.15}>
-            <div className="h-full relative">
-              <div
-                className="hidden md:block absolute -top-[21px] left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full"
-                style={{ background: "#07070d", border: "2px solid #6366f1" }}
-              />
-              <div
-                className="card-hover p-9 h-full relative"
-                style={{ background: "#0b0b16", border: "1px solid #22223a" }}
-              >
-                <div
-                  className="absolute top-0 right-0 w-44 h-44 pointer-events-none"
-                  style={{
-                    background:
-                      "radial-gradient(circle at top right, rgba(99,102,241,0.12), transparent 70%)",
-                  }}
-                />
-                <div
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-7"
-                  style={{
-                    background: "rgba(99,102,241,0.09)",
-                    border: "1px solid rgba(99,102,241,0.3)",
-                    fontFamily: "PolenticalNeon, Outfit, sans-serif",
-                    fontSize: "0.68rem",
-                    letterSpacing: "0.2em",
-                    textTransform: "uppercase",
-                    color: "#a5b4fc",
-                  }}
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#818cf8] opacity-60" />
-                  Next — Enterprise
-                </div>
-                <h3
-                  style={{
-                    fontFamily: "NameSmile, Barlow, sans-serif",
-                    fontWeight: 900,
-                    fontSize: "2.6rem",
-                    textTransform: "uppercase",
-                    letterSpacing: "-0.01em",
-                    lineHeight: 1,
-                  }}
-                  className="gradient-text mb-2"
-                >
-                  Ultraviolet
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "PolenticalNeon, Outfit, sans-serif",
-                    fontSize: "0.8rem",
-                    color: "#818cf8",
-                    letterSpacing: "0.16em",
-                    textTransform: "uppercase",
-                    marginBottom: "1.4rem",
-                  }}
-                >
-                  AI serving without the datacenter bill
-                </p>
-                <p
-                  style={{
-                    fontFamily: "PolenticalNeon, Outfit, sans-serif",
-                    fontSize: "0.93rem",
-                    lineHeight: 1.8,
-                    color: "#9b9bb4",
-                  }}
-                >
-                  Ultraviolet is for the other side of the market — the
-                  companies that{" "}
-                  <em className="not-italic" style={{ color: "#c5c5da" }}>
-                    provide
-                  </em>{" "}
-                  AI to others. Today, running an AI service means filling rooms
-                  with specialized computers. The hardware costs more than most
-                  companies earn in a year, and the electric bill isn't far
-                  behind.
-                </p>
-                <p
-                  className="mt-4"
-                  style={{
-                    fontFamily: "PolenticalNeon, Outfit, sans-serif",
-                    fontSize: "0.93rem",
-                    lineHeight: 1.8,
-                    color: "#9b9bb4",
-                  }}
-                >
-                  Ultraviolet is designed to change that math. Based on our
-                  prototype measurements and published component pricing, it is
-                  projected to deliver AI answers at{" "}
-                  <span style={{ color: "#f2f2fa", fontWeight: 500 }}>
-                    more than ten times lower cost
-                  </span>{" "}
-                  than today's most powerful datacenter hardware, while using a
-                  fraction of the electricity. That brings AI services within
-                  reach of mid-size companies, universities, hospitals, and
-                  government agencies — organizations that want to serve AI
-                  under their own roof, on their own terms.
-                </p>
-                <div
-                  className="mt-7 pt-6 flex items-center gap-3"
-                  style={{ borderTop: "1px solid #1f1f38" }}
-                >
-                  <span className="w-6 h-px spectrum-line" />
-                  <span
-                    style={{
-                      fontFamily: "NameSmile, Barlow, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "0.78rem",
-                      letterSpacing: "0.12em",
-                      textTransform: "uppercase",
-                      color: "#a5b4fc",
-                    }}
-                  >
-                    In Development → Follows Violet
-                  </span>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-
-        {/* Callout bar */}
-        <Reveal delay={0.2}>
-          <div
-            className="mt-12 px-8 py-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 relative overflow-hidden"
-            style={{ background: "#0d0d18", border: "1px solid #22223a" }}
-          >
-            <div className="absolute inset-y-0 left-0 w-[3px] spectrum-line" />
-            <div className="pl-3">
-              <p
-                style={{
-                  fontFamily: "NameSmile, Barlow, sans-serif",
-                  fontWeight: 700,
-                  fontSize: "1.05rem",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.04em",
-                  color: "#f2f2fa",
-                  marginBottom: "0.3rem",
-                }}
-              >
-                Datacenter-grade AI at a small-company price.
-              </p>
-              <p
-                style={{
-                  fontFamily: "PolenticalNeon, Outfit, sans-serif",
-                  fontSize: "0.88rem",
-                  color: "#9b9bb4",
-                }}
-              >
-                Powerful AI services shouldn't require a tech giant's budget.
-              </p>
-            </div>
-            <a
-              href="#"
-              className="shrink-0 px-7 py-3.5 transition-all duration-300 hover:shadow-[0_0_28px_rgba(99,102,241,0.5)] hover:-translate-y-px"
-              style={{
-                fontFamily: "NameSmile, Barlow, sans-serif",
-                fontWeight: 700,
-                fontSize: "0.82rem",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                background: "linear-gradient(135deg, #4f46e5, #6366f1)",
-                color: "#fff",
-              }}
-            >
-              Request Early Access →
-            </a>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  )
-}
-
-/* ————— Pricing ————— */
-
-function PricingSection() {
-  return (
-    <section
-      id="pricing"
-      className="relative py-28 px-6 overflow-hidden"
-      style={{ background: "#07070d" }}
+      style={{ background: "#0a0a13", borderTop: "1px solid #22223a" }}
     >
       <div
         className="absolute left-1/2 top-16 -translate-x-1/2 w-[680px] h-[360px] pointer-events-none"
@@ -2201,7 +2021,7 @@ function PricingSection() {
 
       <div className="relative max-w-4xl mx-auto text-center">
         <Reveal>
-          <SectionEyebrow index="04" label="Pricing" />
+          <SectionEyebrow index="06" label="Roadmap" />
           <h2
             className="text-white mb-6"
             style={{
@@ -2209,24 +2029,11 @@ function PricingSection() {
               fontWeight: 800,
               fontSize: "clamp(2rem, 4.5vw, 3.4rem)",
               letterSpacing: "-0.01em",
-              textTransform: "uppercase",
-              lineHeight: 1.02,
+              lineHeight: 1.08,
             }}
           >
-            One price.
-            <br />
-            <span className="gradient-text">No fine print.</span>
+            What happens next
           </h2>
-          <p
-            className="text-[#9b9bb4]"
-            style={{
-              fontFamily: "PolenticalNeon, Outfit, sans-serif",
-              fontSize: "1.02rem",
-              lineHeight: 1.8,
-            }}
-          >
-            Buy Violet once. Run AI on your terms, indefinitely.
-          </p>
         </Reveal>
 
         <Reveal delay={0.12}>
@@ -2262,29 +2069,10 @@ function PricingSection() {
                     color: "#c4b5fd",
                   }}
                 >
-                  Violet Card
+                  In development
                 </div>
-                <h3
-                  style={{
-                    fontFamily: "NameSmile, Barlow, sans-serif",
-                    fontWeight: 800,
-                    fontSize: "1.5rem",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.02em",
-                  }}
-                  className="text-white mb-6"
-                >
-                  Everything. Included.
-                </h3>
-                <ul className="space-y-3.5">
-                  {[
-                    "Full local AI inference — no subscription",
-                    "Compatible with today's leading open models",
-                    "Works with any modern desktop PC",
-                    "Offline-first, always",
-                    "Software updates included",
-                    "Maryland-based support team",
-                  ].map((item) => (
+                <ul className="space-y-3.5 mt-2">
+                  {ROADMAP_ITEMS.map((item) => (
                     <li key={item} className="flex items-center gap-3.5">
                       <svg
                         width="17"
@@ -2322,68 +2110,92 @@ function PricingSection() {
                 </ul>
               </div>
 
-              <div className="md:text-right md:pt-2">
+              <div className="md:pt-2 md:text-right md:w-72">
                 <div
                   style={{
                     fontFamily: "NameSmile, Barlow, sans-serif",
                     fontWeight: 800,
                     fontSize: "1.05rem",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
-                    marginBottom: "0.6rem",
+                    letterSpacing: "0.04em",
+                    marginBottom: "1.4rem",
                   }}
                   className="gradient-text"
                 >
-                  One-Time Price
+                  Get updates
                 </div>
-                <div
-                  style={{
-                    fontFamily: "PolenticalNeon, Outfit, sans-serif",
-                    fontSize: "0.85rem",
-                    color: "#9b9bb4",
-                    marginBottom: "2rem",
-                  }}
-                >
-                  No subscriptions. No recurring fees. Ever.
-                </div>
-                <a
-                  href="#"
-                  className="block w-full md:w-auto px-9 py-4 text-center text-white transition-all duration-300 hover:scale-105 violet-glow"
-                  style={{
-                    fontFamily: "NameSmile, Barlow, sans-serif",
-                    fontWeight: 700,
-                    fontSize: "0.88rem",
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    background:
-                      "linear-gradient(135deg, #6366f1, #8b5cf6 55%, #a855f7)",
-                  }}
-                >
-                  Reserve Yours →
-                </a>
+                {submitted ? (
+                  <p
+                    style={{
+                      fontFamily: "PolenticalNeon, Outfit, sans-serif",
+                      fontSize: "0.92rem",
+                      color: "#c4b5fd",
+                    }}
+                  >
+                    On the list.
+                  </p>
+                ) : (
+                  <form
+                    className="flex flex-col gap-3"
+                    onSubmit={(e) => {
+                      e.preventDefault()
+                      if (email.trim()) setSubmitted(true)
+                    }}
+                  >
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="you@example.com"
+                      aria-label="Email address"
+                      className="w-full px-4 py-3.5 text-white placeholder-[#6d6d90] focus:outline-none focus:border-[#8b5cf6] transition-colors"
+                      style={{
+                        fontFamily: "PolenticalNeon, Outfit, sans-serif",
+                        fontSize: "0.9rem",
+                        background: "#0a0a13",
+                        border: "1px solid #22223a",
+                      }}
+                    />
+                    <button
+                      type="submit"
+                      className="block w-full px-9 py-4 text-center text-white transition-all duration-300 hover:scale-[1.02] violet-glow"
+                      style={{
+                        fontFamily: "NameSmile, Barlow, sans-serif",
+                        fontWeight: 700,
+                        fontSize: "0.88rem",
+                        letterSpacing: "0.08em",
+                        background:
+                          "linear-gradient(135deg, #6366f1, #8b5cf6 55%, #a855f7)",
+                      }}
+                    >
+                      Get updates
+                    </button>
+                  </form>
+                )}
                 <p
                   style={{
                     fontFamily: "PolenticalNeon, Outfit, sans-serif",
                     fontSize: "0.75rem",
                     color: "#6d6d90",
-                    marginTop: "0.9rem",
+                    marginTop: "1.5rem",
+                    lineHeight: 1.7,
                   }}
                 >
-                  Ships 2025. Free cancellation.
+                  Investor and datacenter inquiries: [contact email]
                 </p>
               </div>
             </div>
           </div>
         </Reveal>
 
-        {/* Trust bar */}
+        {/* Fact bar */}
         <Reveal delay={0.2}>
           <div className="mt-14 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
             {[
-              "No subscriptions",
-              "Offline-capable",
-              "Data never leaves your machine",
-              "Maryland company",
+              "Multiplier-free datapath",
+              "Bit-exact on FPGA at 250 MHz",
+              "Specs labeled target or modeled",
+              "Nothing ships yet",
             ].map((t) => (
               <div key={t} className="flex items-center gap-2.5">
                 <span
@@ -2451,7 +2263,7 @@ function Footer() {
                 color: "#9b9bb4",
               }}
             >
-              Powerful AI. On your desk. On your terms. Built in Maryland.
+              Inference chips without multipliers.
             </p>
           </div>
 
@@ -2469,24 +2281,22 @@ function Footer() {
                   marginBottom: "1.25rem",
                 }}
               >
-                Product
+                Site
               </p>
-              {["Violet Card", "Specs", "Compatibility", "Open Models"].map(
-                (l) => (
-                  <a
-                    key={l}
-                    href="#"
-                    className="block mb-2.5 transition-colors hover:text-white"
-                    style={{
-                      fontFamily: "PolenticalNeon, Outfit, sans-serif",
-                      fontSize: "0.88rem",
-                      color: "#9b9bb4",
-                    }}
-                  >
-                    {l}
-                  </a>
-                ),
-              )}
+              {NAV_LINKS.map((l) => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  className="block mb-2.5 transition-colors hover:text-white"
+                  style={{
+                    fontFamily: "PolenticalNeon, Outfit, sans-serif",
+                    fontSize: "0.88rem",
+                    color: "#9b9bb4",
+                  }}
+                >
+                  {l.label}
+                </a>
+              ))}
             </div>
             <div>
               <p
@@ -2500,12 +2310,17 @@ function Footer() {
                   marginBottom: "1.25rem",
                 }}
               >
-                Company
+                Products
               </p>
-              {["About", "Careers", "Press", "Contact"].map((l) => (
+              {[
+                { label: "Violet", href: "#violet" },
+                { label: "Ultraviolet", href: "#ultraviolet" },
+                { label: "FPGA dev kits", href: "#updates" },
+                { label: "Get updates", href: "#updates" },
+              ].map((l) => (
                 <a
-                  key={l}
-                  href="#"
+                  key={l.label}
+                  href={l.href}
                   className="block mb-2.5 transition-colors hover:text-white"
                   style={{
                     fontFamily: "PolenticalNeon, Outfit, sans-serif",
@@ -2513,7 +2328,7 @@ function Footer() {
                     color: "#9b9bb4",
                   }}
                 >
-                  {l}
+                  {l.label}
                 </a>
               ))}
             </div>
@@ -2565,12 +2380,13 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
-        <MarqueeStrip />
-        <ProductSection />
-        <StatsBand />
-        <AboutSection />
-        <RoadmapSection />
-        <PricingSection />
+        <StatStrip />
+        <ProblemSection />
+        <TechnologySection />
+        <ProductsSection />
+        <NumbersSection />
+        <CompanySection />
+        <UpdatesSection />
       </main>
       <Footer />
     </div>
