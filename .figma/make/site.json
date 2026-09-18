@@ -1,0 +1,10 @@
+{
+  "description": "Transform your desktop into a powerful AI machine with Violet, offering affordable, private AI solutions for families, professionals, and small businesses.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
