@@ -978,10 +978,10 @@ function Hero() {
               lineHeight: 1.8,
             }}
           >
-            Atomsk hardware runs large language and diffusion models on AE
-            Multipliers — our Advanced Efficiency Multiplier architecture.
-            Compressed HPMT weights decode directly in hardware.
-            Datacenter-class models at desktop power and price.
+            Atomsk hardware runs large language and diffusion models on our
+            Advanced Efficiency Multiplier Architecture. Compressed HPMT weights
+            decode directly in hardware. Datacenter-class models at desktop
+            power and price.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 animate-fade-up-delay-3">
