@@ -942,18 +942,31 @@ function Hero() {
             style={{
               fontFamily: "NameSmile, Barlow, sans-serif",
               fontWeight: 900,
-              fontSize: "clamp(2.6rem, 5.6vw, 4.9rem)",
-              lineHeight: 1.02,
+              fontSize: "clamp(2.05rem, 3.45vw, 3.1rem)",
+              lineHeight: 1.08,
               letterSpacing: "-0.015em",
             }}
           >
             <span className="text-white block">Inference chips</span>
-            <span className="spectrum-text block">
-              with{" "}
-              <span className="relative inline-block">
-                AE Multipliers.
-                <span className="spectrum-line absolute left-0 right-0 -bottom-1.5 h-[3px] opacity-80" />
-              </span>
+            <span
+              className="inline-block text-transparent bg-clip-text"
+              style={{
+                backgroundImage:
+                  "linear-gradient(100deg, #c4c6ff 0%, #818cf8 35%, #a78bfa 62%, #e879f9 100%)",
+              }}
+            >
+              with Advanced
+            </span>
+            <br />
+            <span
+              className="relative inline-block text-transparent bg-clip-text"
+              style={{
+                backgroundImage:
+                  "linear-gradient(100deg, #c4c6ff 0%, #818cf8 35%, #a78bfa 62%, #e879f9 100%)",
+              }}
+            >
+              Efficiency.
+              <span className="spectrum-line absolute -bottom-2 right-0 left-0 h-[3px] opacity-80" />
             </span>
           </h1>
 
@@ -2274,7 +2287,7 @@ function Footer() {
                 color: "#9b9bb4",
               }}
             >
-              Inference chips with AE Multipliers.
+              Inference chips with Advanced Efficiency.
             </p>
           </div>
 
