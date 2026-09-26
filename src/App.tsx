@@ -2025,9 +2025,43 @@ const ROADMAP_ITEMS = [
   "Datacenter TCO white paper on request.",
 ]
 
+/* ————— Kit (kit.com) subscribe ————— */
+
+const KIT_FORM_ID = import.meta.env.VITE_KIT_FORM_ID
+const KIT_API_KEY = import.meta.env.VITE_KIT_API_KEY
+
+type SubscribeStatus = "idle" | "submitting" | "success" | "error"
+
+async function subscribeToKit(email: string): Promise<void> {
+  if (!KIT_FORM_ID || !KIT_API_KEY) {
+    throw new Error(
+      "Email updates are not configured yet. Set VITE_KIT_FORM_ID and VITE_KIT_API_KEY.",
+    )
+  }
+  const res = await fetch(
+    `https://api.convertkit.com/v3/forms/${KIT_FORM_ID}/subscribe`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+      body: JSON.stringify({ api_key: KIT_API_KEY, email }),
+    },
+  )
+  if (!res.ok) {
+    let message = `Subscription failed (${res.status}). Please try again.`
+    try {
+      const data = (await res.json()) as { message?: string }
+      if (data.message) message = data.message
+    } catch {
+      // non-JSON error body — keep the generic message
+    }
+    throw new Error(message)
+  }
+}
+
 function UpdatesSection() {
   const [email, setEmail] = useState("")
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState<SubscribeStatus>("idle")
+  const [error, setError] = useState<string | null>(null)
 
   return (
     <section
@@ -2147,7 +2181,7 @@ function UpdatesSection() {
                 >
                   Get updates
                 </div>
-                {submitted ? (
+                {status === "success" ? (
                   <p
                     style={{
                       fontFamily: "PolenticalNeon, Outfit, sans-serif",
@@ -2160,14 +2194,29 @@ function UpdatesSection() {
                 ) : (
                   <form
                     className="flex flex-col gap-3"
-                    onSubmit={(e) => {
+                    onSubmit={async (e) => {
                       e.preventDefault()
-                      if (email.trim()) setSubmitted(true)
+                      const value = email.trim()
+                      if (!value || status === "submitting") return
+                      setStatus("submitting")
+                      setError(null)
+                      try {
+                        await subscribeToKit(value)
+                        setStatus("success")
+                      } catch (err) {
+                        setStatus("error")
+                        setError(
+                          err instanceof Error
+                            ? err.message
+                            : "Something went wrong. Please try again.",
+                        )
+                      }
                     }}
                   >
                     <input
                       type="email"
                       required
+                      disabled={status === "submitting"}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@example.com"
@@ -2182,7 +2231,8 @@ function UpdatesSection() {
                     />
                     <button
                       type="submit"
-                      className="block w-full px-9 py-4 text-center text-white transition-all duration-300 hover:scale-[1.02] violet-glow"
+                      disabled={status === "submitting"}
+                      className="block w-full px-9 py-4 text-center text-white transition-all duration-300 hover:scale-[1.02] violet-glow disabled:opacity-60 disabled:hover:scale-100 disabled:cursor-wait"
                       style={{
                         fontFamily: "NameSmile, Barlow, sans-serif",
                         fontWeight: 700,
@@ -2192,8 +2242,21 @@ function UpdatesSection() {
                           "linear-gradient(135deg, #6366f1, #8b5cf6 55%, #a855f7)",
                       }}
                     >
-                      Get updates
+                      {status === "submitting" ? "Joining…" : "Get updates"}
                     </button>
+                    {status === "error" && error && (
+                      <p
+                        role="alert"
+                        style={{
+                          fontFamily: "PolenticalNeon, Outfit, sans-serif",
+                          fontSize: "0.8rem",
+                          color: "#fda4af",
+                          lineHeight: 1.6,
+                        }}
+                      >
+                        {error}
+                      </p>
+                    )}
                   </form>
                 )}
                 <p
