@@ -18,16 +18,16 @@
 
 @theme {
   --color-bg: #07070d;
-  --color-bg-alt: #0a0a13;
-  --color-surface: #0d0d18;
-  --color-raised: #12121f;
+  --color-bg-alt: #141734;
+  --color-surface: #1e2244;
+  --color-raised: #232754;
   --color-violet: #6366f1;
   --color-violet-bright: #818cf8;
   --color-violet-deep: #8b5cf6;
   --color-magenta: #d946ef;
   --color-text: #f2f2fa;
-  --color-muted: #9b9bb4;
-  --color-border: #22223a;
+  --color-muted: #c2c3e2;
+  --color-border: #50548a;
   --font-display: 'NameSmile', 'Barlow', sans-serif;
   --font-body: 'PolenticalNeon', 'Outfit', sans-serif;
 }
@@ -244,7 +244,7 @@ button:focus-visible {
 .card-hover:hover {
   transform: translateY(-5px);
   border-color: rgba(139, 92, 246, 0.55);
-  background: #101020;
+  background: #232754;
   box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.6), 0 0 40px rgba(124, 58, 237, 0.15);
 }
 
@@ -266,7 +266,7 @@ button:focus-visible {
 }
 
 .text-outline {
-  -webkit-text-stroke: 1px rgba(155, 155, 180, 0.28);
+  -webkit-text-stroke: 1px rgba(194, 196, 228, 0.45);
   color: transparent;
 }
 

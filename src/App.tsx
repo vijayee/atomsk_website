@@ -84,7 +84,7 @@ function SectionEyebrow({
           fontSize: "0.75rem",
           letterSpacing: "0.28em",
           textTransform: "uppercase",
-          color: "#9b9bb4",
+          color: "#c2c3e2",
         }}
       >
         {label}
@@ -717,7 +717,7 @@ function Nav() {
         background: scrolled ? "rgba(7,7,13,0.88)" : "transparent",
         backdropFilter: scrolled ? "blur(18px)" : "none",
         WebkitBackdropFilter: scrolled ? "blur(18px)" : "none",
-        borderBottom: scrolled ? "1px solid #22223a" : "1px solid transparent",
+        borderBottom: scrolled ? "1px solid #50548a" : "1px solid transparent",
       }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -750,7 +750,7 @@ function Nav() {
                 fontSize: "0.85rem",
                 letterSpacing: "0.12em",
               }}
-              className="nav-link uppercase text-[#9b9bb4] hover:text-white transition-colors duration-200"
+              className="nav-link uppercase text-[#c2c3e2] hover:text-white transition-colors duration-200"
             >
               {item.label}
             </a>
@@ -801,7 +801,7 @@ function Nav() {
         style={{
           maxHeight: open ? 340 : 0,
           background: "rgba(7,7,13,0.97)",
-          borderBottom: open ? "1px solid #22223a" : "none",
+          borderBottom: open ? "1px solid #50548a" : "none",
         }}
       >
         <div className="px-6 py-5 flex flex-col gap-4">
@@ -815,7 +815,7 @@ function Nav() {
                 fontSize: "0.95rem",
                 letterSpacing: "0.12em",
               }}
-              className="uppercase text-[#c5c5da]"
+              className="uppercase text-[#d9d9ef]"
             >
               {item.label}
             </a>
@@ -884,7 +884,7 @@ function HeroCallout({
           fontFamily: "PolenticalNeon, Outfit, sans-serif",
           fontSize: "0.68rem",
           letterSpacing: "0.22em",
-          color: "#9b9bb4",
+          color: "#c2c3e2",
         }}
         className="uppercase whitespace-nowrap"
       >
@@ -971,7 +971,7 @@ function Hero() {
           </h1>
 
           <p
-            className="mt-8 text-[#9b9bb4] max-w-lg animate-fade-up-delay-2"
+            className="mt-8 text-[#c2c3e2] max-w-lg animate-fade-up-delay-2"
             style={{
               fontFamily: "PolenticalNeon, Outfit, sans-serif",
               fontSize: "clamp(1rem, 1.4vw, 1.12rem)",
@@ -1038,7 +1038,7 @@ function Hero() {
                     fontFamily: "PolenticalNeon, Outfit, sans-serif",
                     fontSize: "0.78rem",
                     letterSpacing: "0.14em",
-                    color: "#9b9bb4",
+                    color: "#c2c3e2",
                     textTransform: "uppercase",
                   }}
                 >
@@ -1085,7 +1085,7 @@ function Hero() {
             fontSize: "0.65rem",
             letterSpacing: "0.22em",
             textTransform: "uppercase",
-            color: "#9b9bb4",
+            color: "#c2c3e2",
           }}
         >
           Scroll
@@ -1111,9 +1111,9 @@ function StatStrip() {
     <div
       className="relative py-5 overflow-hidden marquee-paused"
       style={{
-        background: "#0a0a13",
-        borderTop: "1px solid #22223a",
-        borderBottom: "1px solid #22223a",
+        background: "#141734",
+        borderTop: "1px solid #50548a",
+        borderBottom: "1px solid #50548a",
       }}
     >
       <div className="flex w-max animate-marquee items-center">
@@ -1131,7 +1131,7 @@ function StatStrip() {
                     fontSize: "0.8rem",
                     letterSpacing: "0.26em",
                     textTransform: "uppercase",
-                    color: i % 2 ? "#6d6d90" : "#a5a5c6",
+                    color: i % 2 ? "#9c9cc4" : "#b9bbe0",
                   }}
                   className="px-6"
                 >
@@ -1153,12 +1153,12 @@ function StatStrip() {
       <div
         className="absolute inset-y-0 left-0 w-24 pointer-events-none"
         style={{
-          background: "linear-gradient(to right, #0a0a13, transparent)",
+          background: "linear-gradient(to right, #141734, transparent)",
         }}
       />
       <div
         className="absolute inset-y-0 right-0 w-24 pointer-events-none"
-        style={{ background: "linear-gradient(to left, #0a0a13, transparent)" }}
+        style={{ background: "linear-gradient(to left, #141734, transparent)" }}
       />
     </div>
   )
@@ -1187,7 +1187,7 @@ function ProblemSection() {
             <span className="gradient-text">not a math problem.</span>
           </h2>
           <p
-            className="mt-7 max-w-2xl mx-auto text-center text-[#9b9bb4]"
+            className="mt-7 max-w-2xl mx-auto text-center text-[#c2c3e2]"
             style={{
               fontFamily: "PolenticalNeon, Outfit, sans-serif",
               fontSize: "1.02rem",
@@ -1233,9 +1233,9 @@ function TechnologySection() {
       id="technology"
       className="relative py-28 px-6"
       style={{
-        background: "#0a0a13",
-        borderTop: "1px solid #22223a",
-        borderBottom: "1px solid #22223a",
+        background: "#141734",
+        borderTop: "1px solid #50548a",
+        borderBottom: "1px solid #50548a",
       }}
     >
       <div className="max-w-7xl mx-auto">
@@ -1262,7 +1262,7 @@ function TechnologySection() {
             <Reveal key={p.num} delay={i * 0.1}>
               <div
                 className="card-hover frame-ticks relative p-8 h-full group"
-                style={{ background: "#0d0d18", border: "1px solid #22223a" }}
+                style={{ background: "#1e2244", border: "1px solid #50548a" }}
               >
                 <div className="absolute inset-x-0 top-0 h-[2px] spectrum-line opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span
@@ -1282,7 +1282,7 @@ function TechnologySection() {
                     fontFamily: "PolenticalNeon, Outfit, sans-serif",
                     fontSize: "1rem",
                     lineHeight: 1.8,
-                    color: "#c5c5da",
+                    color: "#d9d9ef",
                   }}
                 >
                   {p.body}
@@ -1323,7 +1323,7 @@ function SpecList({
   accent: string
 }) {
   return (
-    <div className="mt-7 pt-6" style={{ borderTop: "1px solid #1f1f38" }}>
+    <div className="mt-7 pt-6" style={{ borderTop: "1px solid #3a3d66" }}>
       <p
         style={{
           fontFamily: "NameSmile, Barlow, sans-serif",
@@ -1350,7 +1350,7 @@ function SpecList({
               style={{
                 fontFamily: "PolenticalNeon, Outfit, sans-serif",
                 fontSize: "0.92rem",
-                color: "#c5c5da",
+                color: "#d9d9ef",
               }}
             >
               {item}
@@ -1393,7 +1393,7 @@ function ProductsSection() {
             <span className="gradient-text">Products.</span>
           </h2>
           <p
-            className="text-[#9b9bb4] max-w-xl mx-auto text-center"
+            className="text-[#c2c3e2] max-w-xl mx-auto text-center"
             style={{
               fontFamily: "PolenticalNeon, Outfit, sans-serif",
               fontSize: "1.02rem",
@@ -1425,7 +1425,7 @@ function ProductsSection() {
               <div
                 className="card-hover frame-ticks p-9 h-full relative"
                 style={{
-                  background: "#0d0d18",
+                  background: "#1e2244",
                   border: "1px solid rgba(124,58,237,0.45)",
                 }}
               >
@@ -1478,7 +1478,7 @@ function ProductsSection() {
                     fontFamily: "PolenticalNeon, Outfit, sans-serif",
                     fontSize: "0.93rem",
                     lineHeight: 1.8,
-                    color: "#9b9bb4",
+                    color: "#c2c3e2",
                   }}
                 >
                   Local inference keeps your data on your machine and your costs
@@ -1496,7 +1496,7 @@ function ProductsSection() {
                     fontFamily: "PolenticalNeon, Outfit, sans-serif",
                     fontSize: "0.85rem",
                     lineHeight: 1.7,
-                    color: "#9b9bb4",
+                    color: "#c2c3e2",
                   }}
                 >
                   Violet consumer card: 128 GB DDR5, under 75 W.
@@ -1514,7 +1514,7 @@ function ProductsSection() {
               />
               <div
                 className="card-hover p-9 h-full relative"
-                style={{ background: "#0b0b16", border: "1px solid #22223a" }}
+                style={{ background: "#161a38", border: "1px solid #50548a" }}
               >
                 <div
                   className="absolute top-0 right-0 w-44 h-44 pointer-events-none"
@@ -1568,7 +1568,7 @@ function ProductsSection() {
                     fontFamily: "PolenticalNeon, Outfit, sans-serif",
                     fontSize: "0.93rem",
                     lineHeight: 1.8,
-                    color: "#9b9bb4",
+                    color: "#c2c3e2",
                   }}
                 >
                   The same datapath, scaled to HBM3e.
@@ -1584,7 +1584,7 @@ function ProductsSection() {
                     fontFamily: "PolenticalNeon, Outfit, sans-serif",
                     fontSize: "0.78rem",
                     lineHeight: 1.7,
-                    color: "#6d6d90",
+                    color: "#9c9cc4",
                   }}
                 >
                   Based on internal TCO modeling. Methodology available on
@@ -1599,7 +1599,7 @@ function ProductsSection() {
         <Reveal delay={0.2}>
           <div
             className="mt-12 px-8 py-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 relative overflow-hidden"
-            style={{ background: "#0d0d18", border: "1px solid #22223a" }}
+            style={{ background: "#1e2244", border: "1px solid #50548a" }}
           >
             <div className="absolute inset-y-0 left-0 w-[3px] spectrum-line" />
             <div className="pl-3">
@@ -1619,7 +1619,7 @@ function ProductsSection() {
                 style={{
                   fontFamily: "PolenticalNeon, Outfit, sans-serif",
                   fontSize: "0.88rem",
-                  color: "#9b9bb4",
+                  color: "#c2c3e2",
                 }}
               >
                 For early partners.
@@ -1654,9 +1654,9 @@ function NumbersSection() {
       id="numbers"
       className="relative overflow-hidden py-28 px-6"
       style={{
-        background: "#0a0a13",
-        borderTop: "1px solid #22223a",
-        borderBottom: "1px solid #22223a",
+        background: "#141734",
+        borderTop: "1px solid #50548a",
+        borderBottom: "1px solid #50548a",
       }}
     >
       {/* Ambient diagonal glow */}
@@ -1707,7 +1707,7 @@ function NumbersSection() {
                 fontSize: "clamp(0.85rem, 1.6vw, 1.1rem)",
                 letterSpacing: "0.24em",
                 textTransform: "uppercase",
-                color: "#c5c5da",
+                color: "#d9d9ef",
               }}
               className="mt-4"
             >
@@ -1718,7 +1718,7 @@ function NumbersSection() {
 
         <div
           className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-px"
-          style={{ background: "#1a1a2e", border: "1px solid #1a1a2e" }}
+          style={{ background: "#2b2e55", border: "1px solid #2b2e55" }}
         >
           {[
             {
@@ -1740,7 +1740,7 @@ function NumbersSection() {
             <Reveal key={s.label} delay={0.1 + i * 0.1}>
               <div
                 className="px-8 py-10 text-center h-full"
-                style={{ background: "#0a0a13" }}
+                style={{ background: "#141734" }}
               >
                 <p
                   style={{
@@ -1759,7 +1759,7 @@ function NumbersSection() {
                     fontFamily: "PolenticalNeon, Outfit, sans-serif",
                     fontSize: "0.8rem",
                     letterSpacing: "0.1em",
-                    color: "#9b9bb4",
+                    color: "#c2c3e2",
                     lineHeight: 1.7,
                   }}
                 >
@@ -1789,8 +1789,8 @@ function ValidationPanel() {
     <div
       className="frame-ticks"
       style={{
-        background: "#0a0a13",
-        border: "1px solid #22223a",
+        background: "#141734",
+        border: "1px solid #50548a",
         boxShadow:
           "0 30px 80px -20px rgba(0,0,0,0.7), 0 0 60px rgba(99,102,241,0.08)",
       }}
@@ -1798,15 +1798,15 @@ function ValidationPanel() {
       {/* Title bar */}
       <div
         className="flex items-center gap-2 px-5 py-3.5"
-        style={{ borderBottom: "1px solid #1a1a2e", background: "#0d0d18" }}
+        style={{ borderBottom: "1px solid #2b2e55", background: "#1e2244" }}
       >
         <span
           className="w-3 h-3 rounded-full"
-          style={{ background: "#3a3a5c" }}
+          style={{ background: "#50548a" }}
         />
         <span
           className="w-3 h-3 rounded-full"
-          style={{ background: "#3a3a5c" }}
+          style={{ background: "#50548a" }}
         />
         <span className="w-3 h-3 rounded-full spectrum-line" />
         <span
@@ -1816,7 +1816,7 @@ function ValidationPanel() {
             fontSize: "0.7rem",
             letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: "#6d6d90",
+            color: "#9c9cc4",
           }}
         >
           hpmt — validation console
@@ -1870,7 +1870,7 @@ function ValidationPanel() {
                 style={{
                   fontFamily: "PolenticalNeon, Outfit, sans-serif",
                   fontSize: "0.82rem",
-                  color: "#9b9bb4",
+                  color: "#c2c3e2",
                 }}
               >
                 {line.text}
@@ -1939,7 +1939,7 @@ function CompanySection() {
                   fontSize: "0.75rem",
                   letterSpacing: "0.28em",
                   textTransform: "uppercase",
-                  color: "#9b9bb4",
+                  color: "#c2c3e2",
                 }}
               >
                 Company
@@ -1965,7 +1965,7 @@ function CompanySection() {
                 fontFamily: "PolenticalNeon, Outfit, sans-serif",
                 fontSize: "0.98rem",
                 lineHeight: 1.85,
-                color: "#9b9bb4",
+                color: "#c2c3e2",
               }}
             >
               <p>
@@ -1973,7 +1973,7 @@ function CompanySection() {
                 decides the economics of inference.
               </p>
               <p>The hardware is validated on FPGA today.</p>
-              <p style={{ color: "#c5c5da" }}>
+              <p style={{ color: "#d9d9ef" }}>
                 First silicon is in development.
               </p>
               <p>Founded by [Founder name] · [Location]</p>
@@ -2005,7 +2005,7 @@ function CompanySection() {
             <div
               className="absolute -top-6 -right-6 -z-10 inset-y-12 left-16"
               style={{
-                border: "1px solid #1f1f38",
+                border: "1px solid #3a3d66",
                 background:
                   "linear-gradient(160deg, rgba(139,92,246,0.05), transparent 60%)",
               }}
@@ -2067,7 +2067,7 @@ function UpdatesSection() {
     <section
       id="updates"
       className="relative py-28 px-6 overflow-hidden"
-      style={{ background: "#0a0a13", borderTop: "1px solid #22223a" }}
+      style={{ background: "#141734", borderTop: "1px solid #50548a" }}
     >
       <div
         className="absolute left-1/2 top-16 -translate-x-1/2 w-[680px] h-[360px] pointer-events-none"
@@ -2098,7 +2098,7 @@ function UpdatesSection() {
           <div
             className="mt-14 relative p-10 md:p-12 text-left frame-ticks"
             style={{
-              background: "#0d0d18",
+              background: "#1e2244",
               border: "1px solid rgba(139,92,246,0.4)",
               boxShadow:
                 "0 0 60px rgba(99,102,241,0.12), 0 40px 90px -30px rgba(0,0,0,0.8)",
@@ -2158,7 +2158,7 @@ function UpdatesSection() {
                         style={{
                           fontFamily: "PolenticalNeon, Outfit, sans-serif",
                           fontSize: "0.93rem",
-                          color: "#c5c5da",
+                          color: "#d9d9ef",
                         }}
                       >
                         {item}
@@ -2221,12 +2221,12 @@ function UpdatesSection() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@example.com"
                       aria-label="Email address"
-                      className="w-full px-4 py-3.5 text-white placeholder-[#6d6d90] focus:outline-none focus:border-[#8b5cf6] transition-colors"
+                      className="w-full px-4 py-3.5 text-white placeholder-[#9c9cc4] focus:outline-none focus:border-[#8b5cf6] transition-colors"
                       style={{
                         fontFamily: "PolenticalNeon, Outfit, sans-serif",
                         fontSize: "0.9rem",
-                        background: "#0a0a13",
-                        border: "1px solid #22223a",
+                        background: "#141734",
+                        border: "1px solid #50548a",
                       }}
                     />
                     <button
@@ -2263,7 +2263,7 @@ function UpdatesSection() {
                   style={{
                     fontFamily: "PolenticalNeon, Outfit, sans-serif",
                     fontSize: "0.75rem",
-                    color: "#6d6d90",
+                    color: "#9c9cc4",
                     marginTop: "1.5rem",
                     lineHeight: 1.7,
                   }}
@@ -2295,7 +2295,7 @@ function UpdatesSection() {
                   style={{
                     fontFamily: "PolenticalNeon, Outfit, sans-serif",
                     fontSize: "0.78rem",
-                    color: "#9b9bb4",
+                    color: "#c2c3e2",
                     letterSpacing: "0.14em",
                     textTransform: "uppercase",
                   }}
@@ -2347,7 +2347,7 @@ function Footer() {
                 fontFamily: "PolenticalNeon, Outfit, sans-serif",
                 fontSize: "0.9rem",
                 lineHeight: 1.8,
-                color: "#9b9bb4",
+                color: "#c2c3e2",
               }}
             >
               Inference chips with Advanced Efficiency.
@@ -2378,7 +2378,7 @@ function Footer() {
                   style={{
                     fontFamily: "PolenticalNeon, Outfit, sans-serif",
                     fontSize: "0.88rem",
-                    color: "#9b9bb4",
+                    color: "#c2c3e2",
                   }}
                 >
                   {l.label}
@@ -2412,7 +2412,7 @@ function Footer() {
                   style={{
                     fontFamily: "PolenticalNeon, Outfit, sans-serif",
                     fontSize: "0.88rem",
-                    color: "#9b9bb4",
+                    color: "#c2c3e2",
                   }}
                 >
                   {l.label}
@@ -2423,14 +2423,14 @@ function Footer() {
         </div>
 
         <div
-          style={{ borderTop: "1px solid #1a1a2e", paddingTop: "2rem" }}
+          style={{ borderTop: "1px solid #2b2e55", paddingTop: "2rem" }}
           className="flex flex-col md:flex-row items-center justify-between gap-4"
         >
           <p
             style={{
               fontFamily: "PolenticalNeon, Outfit, sans-serif",
               fontSize: "0.78rem",
-              color: "#6d6d90",
+              color: "#9c9cc4",
               letterSpacing: "0.06em",
             }}
           >
@@ -2444,7 +2444,7 @@ function Footer() {
                 style={{
                   fontFamily: "PolenticalNeon, Outfit, sans-serif",
                   fontSize: "0.78rem",
-                  color: "#9b9bb4",
+                  color: "#c2c3e2",
                   letterSpacing: "0.08em",
                 }}
                 className="hover:text-white transition-colors uppercase"
