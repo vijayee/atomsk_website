@@ -933,7 +933,7 @@ function Hero() {
                 textTransform: "uppercase",
               }}
             >
-              Advanced Efficiency Multiplier technology
+              AI you can own
             </span>
           </div>
 
@@ -947,7 +947,7 @@ function Hero() {
               letterSpacing: "-0.015em",
             }}
           >
-            <span className="text-white block">Inference chips</span>
+            <span className="text-white block">Advanced AI</span>
             <span
               className="inline-block text-transparent bg-clip-text"
               style={{
@@ -955,7 +955,7 @@ function Hero() {
                   "linear-gradient(100deg, #c4c6ff 0%, #818cf8 35%, #a78bfa 62%, #e879f9 100%)",
               }}
             >
-              with Advanced
+              owned, not
             </span>
             <br />
             <span
@@ -965,7 +965,7 @@ function Hero() {
                   "linear-gradient(100deg, #c4c6ff 0%, #818cf8 35%, #a78bfa 62%, #e879f9 100%)",
               }}
             >
-              Efficiency.
+              rented.
               <span className="spectrum-line absolute -bottom-2 right-0 left-0 h-[3px] opacity-80" />
             </span>
           </h1>
@@ -978,10 +978,10 @@ function Hero() {
               lineHeight: 1.8,
             }}
           >
-            Atomsk hardware runs large language and diffusion models on our
-            Advanced Efficiency Multiplier Architecture. Compressed HPMT weights
-            decode directly in hardware. Datacenter-class models at desktop
-            power and price.
+            Atomsk chips shrink AI models to roughly 5 bits per weight and run them
+            under 75 W on our advanced efficiency multiplier architecture. A 70B-
+            parameter model fits on a $499 PCIe card in an ordinary PC — no cloud
+            subscription, no data leaving the machine.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 animate-fade-up-delay-3">
@@ -1024,9 +1024,9 @@ function Hero() {
           {/* Meta row */}
           <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 animate-fade-up-delay-4">
             {[
-              "Bit-exact decode",
-              "CPU · simulation · FPGA",
-              "250 MHz FPGA validation",
+              "3× model-size reduction",
+              "Sub-75 W power target",
+              "Bit-exact on CPU, simulation, and FPGA",
             ].map((m) => (
               <div key={m} className="flex items-center gap-2.5">
                 <span
@@ -1062,14 +1062,14 @@ function Hero() {
             <VioletCardRender />
           </div>
           <HeroCallout
-            label="AE Multiplier datapath"
+            label="~5 bits/weight"
             side="right"
             top="38%"
             delay="0.9s"
           />
           <HeroCallout label="PCIe card" side="right" top="72%" delay="1.05s" />
           <HeroCallout
-            label="Under 75 W target"
+            label="Sub-75 W"
             side="left"
             top="30%"
             delay="1.2s"
@@ -1099,10 +1099,10 @@ function Hero() {
 /* ————— Stat strip ————— */
 
 const STAT_ITEMS = [
-  "$499 target retail",
-  "128 GB on-card memory",
+  "3× smaller models",
+  "128 GB DDR5 on-card",
   "Under 75 W",
-  "Up to 70B-parameter models",
+  "70B-class models local",
 ]
 
 function StatStrip() {
@@ -1182,9 +1182,9 @@ function ProblemSection() {
               lineHeight: 1.08,
             }}
           >
-            Inference is a memory problem,
+            AI is rented, not owned.
             <br />
-            <span className="gradient-text">not a math problem.</span>
+            <span className="gradient-text">Two limits lock it in the cloud.</span>
           </h2>
           <p
             className="mt-7 max-w-2xl mx-auto text-center text-[#c2c3e2]"
@@ -1194,11 +1194,12 @@ function ProblemSection() {
               lineHeight: 1.85,
             }}
           >
-            Running a large model means streaming billions of weights past the
-            arithmetic, once per token. Conventional accelerators pay for
-            multipliers that sit idle waiting for data. Our format moves the
-            decode into the memory path, so bandwidth is the only bottleneck
-            left. That is exactly where an accelerator should spend its money.
+            State-of-the-art models are tens of gigabytes; the hardware to run
+            them draws hundreds of watts to kilowatts. The result is structural:
+            most people and organizations cannot own modern AI. They have to rent
+            it as a metered cloud service — with subscription pricing, privacy
+            exposure, and connectivity dependence built in. Atomsk removes the
+            size and power constraints at the same time.
           </p>
         </Reveal>
       </div>
@@ -1211,19 +1212,19 @@ function ProblemSection() {
 const TECH_POINTS = [
   {
     num: "01",
-    body: "Weights ship in HPMT, our hardware-native compressed format.",
+    body: "Models are compressed to roughly 5 bits per weight — with accuracy matching the best existing compression methods.",
   },
   {
     num: "02",
-    body: "The datapath decodes weights directly through AE Multipliers.",
+    body: "Weights decode natively through our advanced efficiency multiplier datapath, executed in hardware, not a software fallback.",
   },
   {
     num: "03",
-    body: "At our default setting, Mistral-7B perplexity changes by just +0.14 — better than leading 4-bit quantization methods at comparable size.",
+    body: "Mistral-7B perplexity changes by just +0.14 at our default compression — better than leading 4-bit quantization at comparable size.",
   },
   {
     num: "04",
-    body: "Verified bit-exact: one weight file, identical decode on CPU, simulation, and FPGA.",
+    body: "One HPMT weight file, identical bit-exact decode on CPU, RTL simulation, and FPGA at 250 MHz with positive timing margin.",
   },
 ]
 
@@ -1251,9 +1252,9 @@ function TechnologySection() {
               lineHeight: 1.08,
             }}
           >
-            Compressed at rest.
+            Smaller models.
             <br />
-            <span className="gradient-text">Exact in flight.</span>
+            <span className="gradient-text">Cooler hardware.</span>
           </h2>
         </Reveal>
 
@@ -1299,18 +1300,18 @@ function TechnologySection() {
 /* ————— Products ————— */
 
 const VIOLET_SPECS = [
-  "$499 retail",
-  "128 GB quad DDR5, user-installable",
+  "$499 target retail",
+  "128 GB DDR5, user-installable",
   "Under 75 W",
-  "7B-class conversational speed",
   "70B-class models entirely on-card",
+  "Ordinary PC, ordinary outlet",
 ]
 
 const ULTRAVIOLET_SPECS = [
-  "2,600+ tokens/s per card at batch 16",
-  "45 mJ per token",
-  ">10× lower cost per token vs. H100-class systems",
-  "SD3-class images in ~2.2 s",
+  "Modeled >10× lower cost per token than H100-class systems",
+  "Scales directly with memory bandwidth: DDR5 → HBM3e → HBM4",
+  "Same HPMT stack as Violet, scaled to datacenter power envelopes",
+  "TCO methodology available on request",
 ]
 
 function SpecList({
@@ -1400,8 +1401,9 @@ function ProductsSection() {
               lineHeight: 1.8,
             }}
           >
-            Violet and Ultraviolet are in development. All chip specifications
-            are target or modeled figures.
+            Violet is our first ASIC card. Ultraviolet applies the same
+            architecture to datacenter memory. Both are in development; specs
+            are target or modeled.
           </p>
         </Reveal>
 
@@ -1471,7 +1473,7 @@ function ProductsSection() {
                     lineHeight: 1.4,
                   }}
                 >
-                  A 70B-class lab on a PCIe card.
+                  A datacenter-class model on a desktop card.
                 </p>
                 <p
                   style={{
@@ -1481,9 +1483,9 @@ function ProductsSection() {
                     color: "#c2c3e2",
                   }}
                 >
-                  Local inference keeps your data on your machine and your costs
-                  flat. Violet makes local practical for models that used to
-                  need a rack.
+                  Own the model, not the recurring bill. Violet keeps data on
+                  your machine, runs on a standard power outlet, and turns an
+                  ordinary PC into a local AI workstation.
                 </p>
                 <SpecList
                   label="Target specs"
@@ -1499,7 +1501,7 @@ function ProductsSection() {
                     color: "#c2c3e2",
                   }}
                 >
-                  Violet consumer card: 128 GB DDR5, under 75 W.
+                  Target: 128 GB user-installable DDR5, under 75 W.
                 </p>
               </div>
             </div>
@@ -1571,7 +1573,7 @@ function ProductsSection() {
                     color: "#c2c3e2",
                   }}
                 >
-                  The same datapath, scaled to HBM3e.
+                  The same HPMT stack, scaled to high-bandwidth memory.
                 </p>
                 <SpecList
                   label="Modeled specs"
@@ -1622,7 +1624,7 @@ function ProductsSection() {
                   color: "#c2c3e2",
                 }}
               >
-                For early partners.
+                $499 target retail · 128 GB DDR5 · under 75 W.
               </p>
             </div>
             <a
@@ -1683,7 +1685,8 @@ function NumbersSection() {
               lineHeight: 1.08,
             }}
           >
-            Measured, <span className="gradient-text">not promised.</span>
+            Outcome claims,
+            <span className="gradient-text"> labeled and auditable.</span>
           </h2>
         </Reveal>
 
@@ -1711,7 +1714,7 @@ function NumbersSection() {
               }}
               className="mt-4"
             >
-              Bit-exact FPGA validation
+              FPGA timing closure with positive slack
             </p>
           </div>
         </Reveal>
@@ -1724,17 +1727,17 @@ function NumbersSection() {
             {
               value: "+0.14",
               label:
-                "Perplexity on Mistral-7B at default compression (internal measurement)",
+                "Mistral-7B perplexity change at ~5 bits/weight (internal measurement)",
             },
             {
               value: "1",
               label:
-                "Weight file — identical decode on CPU, simulation, and FPGA",
+                "HPMT weight file — identical bit-exact decode on CPU, RTL simulation, and FPGA",
             },
             {
-              value: "Under NDA",
+              value: ">10×",
               label:
-                "Datacenter figures are modeled, labeled, and reproducible",
+                "Modeled lower cost per token vs. H100-class systems (methodology on request)",
             },
           ].map((s, i) => (
             <Reveal key={s.label} delay={0.1 + i * 0.1}>
@@ -1781,7 +1784,7 @@ const CONSOLE_LINES = [
   { label: "CPU", text: "bit-exact match", ok: true },
   { label: "SIM", text: "bit-exact match", ok: true },
   { label: "FPGA", text: "bit-exact match · 250 MHz", ok: true },
-  { label: "CORE", text: "AE Multiplier datapath", ok: true },
+  { label: "CORE", text: "~5 bits/weight", ok: true },
 ]
 
 function ValidationPanel() {
@@ -1957,7 +1960,7 @@ function CompanySection() {
             >
               Small team.
               <br />
-              <span className="gradient-text">One idea.</span>
+              <span className="gradient-text">One mechanism-free idea.</span>
             </h2>
             <div
               className="space-y-5"
@@ -1969,14 +1972,18 @@ function CompanySection() {
               }}
             >
               <p>
-                Atomsk was founded on a single observation: the mathematics
-                decides the economics of inference.
+                Atomsk is a Maryland AI-semiconductor startup founded by Victor Morrow.
               </p>
-              <p>The hardware is validated on FPGA today.</p>
+              <p>
+                He developed HPMT — a weight format executed by an advanced efficiency
+                multiplier architecture — and validated it bit-exactly on CPU, RTL simulation,
+                and FPGA hardware at 250 MHz with positive timing margin.
+              </p>
               <p style={{ color: "#d9d9ef" }}>
-                First silicon is in development.
+                He is the named inventor on Atomsk's provisional patent applications
+                and the Principal Investigator on its NSF SBIR Phase I proposal.
               </p>
-              <p>Founded by [Founder name] · [Location]</p>
+              <p>Founded and headquartered in Maryland. Pre-revenue, founder-led.</p>
             </div>
           </div>
         </Reveal>
@@ -2021,8 +2028,10 @@ function CompanySection() {
 
 const ROADMAP_ITEMS = [
   "Violet consumer card: 128 GB DDR5, under 75 W.",
-  "Violet silicon in development.",
-  "Datacenter TCO white paper on request.",
+  "Bit-exact RTL/FPGA validation at 250 MHz.",
+  "USPTO non-provisional conversion of patent applications.",
+  "Datacenter TCO report on request.",
+  "Licensable IP roadmap for mobile and edge silicon.",
 ]
 
 /* ————— Kit (kit.com) subscribe ————— */
@@ -2279,7 +2288,7 @@ function UpdatesSection() {
         <Reveal delay={0.2}>
           <div className="mt-14 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
             {[
-              "AE Multiplier datapath",
+              "~5 bits/weight",
               "Bit-exact on FPGA at 250 MHz",
               "Specs labeled target or modeled",
               "Nothing ships yet",
@@ -2350,7 +2359,7 @@ function Footer() {
                 color: "#c2c3e2",
               }}
             >
-              Inference chips with Advanced Efficiency.
+              AI that runs in more devices and is owned by more people.
             </p>
           </div>
 
@@ -2402,7 +2411,6 @@ function Footer() {
               {[
                 { label: "Violet", href: "#violet" },
                 { label: "Ultraviolet", href: "#ultraviolet" },
-                { label: "Violet", href: "#violet" },
                 { label: "Get updates", href: "#updates" },
               ].map((l) => (
                 <a
