@@ -1099,7 +1099,7 @@ function Hero() {
 /* ————— Stat strip ————— */
 
 const STAT_ITEMS = [
-  "$499 target retail",
+  "Affordably priced",
   "128 GB on-card memory",
   "Under 75 W",
   "Up to 70B-parameter models",
@@ -1299,7 +1299,7 @@ function TechnologySection() {
 /* ————— Products ————— */
 
 const VIOLET_SPECS = [
-  "$499 retail",
+  "Affordably priced",
   "128 GB quad DDR5, user-installable",
   "Under 75 W",
   "7B-class conversational speed",
@@ -1976,7 +1976,7 @@ function CompanySection() {
               <p style={{ color: "#d9d9ef" }}>
                 First silicon is in development.
               </p>
-              <p>Founded by [Founder name] · [Location]</p>
+              <p>AI that runs in more devices and is owned by more people.</p>
             </div>
           </div>
         </Reveal>
