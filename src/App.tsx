@@ -1499,7 +1499,7 @@ function ProductsSection() {
                     color: "#9b9bb4",
                   }}
                 >
-                  FPGA developer kits available first, for early partners.
+                  Violet consumer card: 128 GB DDR5, under 75 W.
                 </p>
               </div>
             </div>
@@ -1613,7 +1613,7 @@ function ProductsSection() {
                   marginBottom: "0.3rem",
                 }}
               >
-                First hardware: FPGA developer kits.
+                First hardware: the Violet consumer accelerator card.
               </p>
               <p
                 style={{
@@ -2020,7 +2020,7 @@ function CompanySection() {
 /* ————— Roadmap + updates ————— */
 
 const ROADMAP_ITEMS = [
-  "FPGA developer kits for early partners.",
+  "Violet consumer card: 128 GB DDR5, under 75 W.",
   "Violet silicon in development.",
   "Datacenter TCO white paper on request.",
 ]
@@ -2402,7 +2402,7 @@ function Footer() {
               {[
                 { label: "Violet", href: "#violet" },
                 { label: "Ultraviolet", href: "#ultraviolet" },
-                { label: "FPGA dev kits", href: "#updates" },
+                { label: "Violet", href: "#violet" },
                 { label: "Get updates", href: "#updates" },
               ].map((l) => (
                 <a
