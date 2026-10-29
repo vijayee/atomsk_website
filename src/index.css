@@ -152,11 +152,6 @@ button:focus-visible {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
 @keyframes dash-flow {
   to { stroke-dashoffset: -26; }
 }
@@ -195,13 +190,6 @@ button:focus-visible {
 .animate-fade-up-delay-2 { animation: fade-up 0.9s 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards; opacity: 0; }
 .animate-fade-up-delay-3 { animation: fade-up 0.9s 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards; opacity: 0; }
 .animate-fade-up-delay-4 { animation: fade-up 0.9s 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; opacity: 0; }
-
-.animate-marquee {
-  animation: marquee 32s linear infinite;
-}
-.marquee-paused:hover .animate-marquee {
-  animation-play-state: paused;
-}
 
 .trace-flow {
   stroke-dasharray: 5 8;
@@ -280,7 +268,6 @@ button:focus-visible {
     transform: none;
     transition: none;
   }
-  .animate-marquee,
   .trace-flow,
   .animate-core-pulse,
   .animate-float-y,
