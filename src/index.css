@@ -4,14 +4,14 @@
 
 @font-face {
   font-family: 'PolenticalNeon';
-  src: url('/PolenticalNeon.ttf') format('truetype');
+  src: url('./assets/fonts/PolenticalNeon.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'NameSmile';
-  src: url('/NameSmile.ttf') format('truetype');
+  src: url('./assets/fonts/NameSmile.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

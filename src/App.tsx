@@ -1,4 +1,5 @@
 import { FormEvent, useEffect, useState } from "react"
+import atomskLogo from "./assets/atomsk-logo.svg"
 
 const labPhoto =
   "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&q=85&w=1800"
@@ -18,7 +19,7 @@ function Arrow({ diagonal = false }: { diagonal?: boolean }) {
 function Logo({ light = false }: { light?: boolean }) {
   return (
     <a className={`logo ${light ? "logo--light" : ""}`} href="#top" aria-label="Atomsk home">
-      <img src="/atomsk-logo.svg" alt="" />
+      <img src={atomskLogo} alt="" />
       <span>Atomsk</span>
     </a>
   )
@@ -95,7 +96,7 @@ function ChipVisual() {
         </div>
         <div className="chip-card__traces" />
         <div className="chip-card__core">
-          <img src="/atomsk-logo.svg" alt="" />
+          <img src={atomskLogo} alt="" />
           <span>ATOMSK</span>
         </div>
         <div className="chip-card__memory chip-card__memory--one" />
@@ -395,7 +396,7 @@ function App() {
 
       <section className="story" id="company">
         <div className="story__mark">
-          <img src="/atomsk-logo.svg" alt="" />
+          <img src={atomskLogo} alt="" />
         </div>
         <div className="story__copy">
           <Eyebrow number="05">Company</Eyebrow>
