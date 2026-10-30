@@ -1,5 +1,6 @@
 {
-  "description": "Transform your desktop into a powerful AI machine with Violet, offering affordable, private AI solutions for families, professionals, and small businesses.",
+  "title": "Atomsk",
+  "description": "Explore AI accelerator chips, product features, and performance for AI enthusiasts and home lab users seeking powerful local AI computing.",
   "robots": {
     "index": false
   },
